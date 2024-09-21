@@ -42,15 +42,16 @@ namespace Base___V1.Logic
         public void InsertarMascota(Mascota mascota)
         {
             Comando.Connection = Conexion.abrirConexion();
-            Comando.CommandText = "INSERT INTO tb_mascota (nombre, especie, raza, edad, sexo, color, señas, idDueño, fecha_ingreso) VALUES (@NombreMascota, @Especie,@Raza, @Edad, @Sexo, @Color, @Señas, @idDueño, @FechaIngreso)";
-            Comando.Parameters.AddWithValue("@NombreMascota", mascota.getNombre());
+			Comando.CommandText = "INSERT INTO tb_mascota (nombre, especie, raza, edad, sexo, color, señas, foto, idDueño, fecha_ingreso) VALUES (@NombreMascota, @Especie,@Raza, @Edad, @Sexo, @Color, @Señas, @Foto, @idDueño, @FechaIngreso)";
+			Comando.Parameters.AddWithValue("@NombreMascota", mascota.getNombre());
             Comando.Parameters.AddWithValue("@Especie", mascota.getEspecie());
             Comando.Parameters.AddWithValue("@Raza", mascota.getRaza());
             Comando.Parameters.AddWithValue("@Edad", mascota.getEdad());
             Comando.Parameters.AddWithValue("@Sexo", mascota.getSexo());
             Comando.Parameters.AddWithValue("@Color", mascota.getColor());
-            Comando.Parameters.AddWithValue("@Señas", mascota.getSenias());
-            Comando.Parameters.AddWithValue("@idDueño", mascota.getIdDuenio());
+            Comando.Parameters.AddWithValue("@Señas", mascota.getSenias()); 
+            Comando.Parameters.AddWithValue("@Foto", mascota.getStringImagen());
+			Comando.Parameters.AddWithValue("@idDueño", mascota.getIdDuenio());
             DateTime fechaHoraActual = DateTime.Now;
             Comando.Parameters.AddWithValue("FechaIngreso", fechaHoraActual.ToString("dd/MM/yyyy HH:mm"));
 
@@ -137,7 +138,8 @@ namespace Base___V1.Logic
                 m.setSenias(dr["señas"].ToString());
                 m.setIdDuenio(int.Parse(dr["idDueño"].ToString()));
                 m.setFechaIngreso(dr["fecha_ingreso"].ToString());
-                Conexion.cerrarConexion();
+				m.setStringImage(dr["foto"].ToString());
+				Conexion.cerrarConexion();
                 return m;
             }
             else
@@ -181,14 +183,23 @@ namespace Base___V1.Logic
             try
             {
                 Comando.Connection = Conexion.abrirConexion();
-                Comando.CommandText = $"UPDATE tb_mascota SET nombre = '{m.getNombre()}', especie = '{m.getEspecie()}'" +
-                    $", raza = '{m.getRaza()}', edad = {m.getEdad()}, sexo = '{m.getSexo()}', color = '{m.getColor()}'" +
-                    $", señas = '{m.getSenias()}' WHERE idMascota = {m.getIdMascota()}";
+                Comando.CommandText = "UPDATE tb_mascota SET nombre = @nombre, especie = @especie, raza = @raza, edad = @edad, sexo = @sexo, color = @color, señas = @señas, foto = @foto WHERE idMascota = @idMascota";
+
+                Comando.Parameters.AddWithValue("@nombre", m.getNombre());
+                Comando.Parameters.AddWithValue("@especie", m.getEspecie());
+                Comando.Parameters.AddWithValue("@raza", m.getRaza());
+                Comando.Parameters.AddWithValue("@edad", m.getEdad());
+                Comando.Parameters.AddWithValue("@sexo", m.getSexo());
+                Comando.Parameters.AddWithValue("@color", m.getColor());
+                Comando.Parameters.AddWithValue("@señas", m.getSenias());
+                Comando.Parameters.AddWithValue("@foto", m.getStringImagen());
+                Comando.Parameters.AddWithValue("@idMascota", m.getIdMascota());
 
                 Comando.CommandType = CommandType.Text;
                 Comando.ExecuteNonQuery();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("Error al editar los datos del paciente. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

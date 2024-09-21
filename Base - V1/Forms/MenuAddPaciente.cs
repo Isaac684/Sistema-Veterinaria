@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using AForge.Video;
+using AForge.Video.DirectShow;
 using Base___V1.Logic;
 using Base___V1.Models;
 
@@ -17,10 +20,35 @@ namespace Base___V1
     public partial class MenuAddPaciente : Form
     {
         private QuerysSQL data = new QuerysSQL();
-        public MenuAddPaciente()
+
+		//camara
+		private bool dispose;
+		private FilterInfoCollection collection;
+		private VideoCaptureDevice webCam;
+		public MenuAddPaciente()
         {
             InitializeComponent();
-        }
+			loadDevices();
+			startWebCam();
+		}
+		public void loadDevices()
+		{
+			collection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+			if (collection.Count > 0)
+			{
+				dispose = true;
+				foreach (FilterInfo item in collection)
+				{
+					cbxCamara.Items.Add(item.Name.ToString());
+				}
+				cbxCamara.Text = collection[0].Name.ToString();
+			}
+			else
+			{
+				dispose = false;
+			}
+		}
+	
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -50,8 +78,12 @@ namespace Base___V1
                         mascota.setColor(txboxColor.Text);
                         mascota.setSenias(txboxSenias.Text);
                         mascota.setIdDuenio(data.ObtenerUltimoIDDuenio());
+						if (pb2.Image != null)
+						{
+							mascota.setImagen(pb2.Image);
+						}
 
-                        data.InsertarMascota(mascota);
+						data.InsertarMascota(mascota);
 
                         LimpiarTextBox();
                     }
@@ -87,7 +119,8 @@ namespace Base___V1
             txboxRaza.Text = "";
             txboxEdad.Text = "";
             txboxSenias.Text = "";
-        }
+			pb2.Image = null;
+		}
         public static bool ValidarCorreoElectronico(string correo)
         {
             string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
@@ -98,6 +131,74 @@ namespace Base___V1
         {
             string patron = @"^\d{4}-\d{4}$";
             return Regex.IsMatch(numeroTelefono, patron);
-        }
-    }
+		}
+
+		private void panel1_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+		private void watching(object sender, NewFrameEventArgs e)
+		{
+			// Crea una copia del marco actual
+			Bitmap newImage = (Bitmap)e.Frame.Clone();
+
+			// Libera la imagen anterior si existe
+			if (pb1.Image != null)
+			{
+				pb1.Image.Dispose();
+			}
+
+			// Asigna la nueva imagen al PictureBox
+			pb1.Image = newImage;
+			pb1.SizeMode = PictureBoxSizeMode.StretchImage;
+		}
+
+
+		private void cbxCamara_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			startWebCam();
+		}
+		private void startWebCam()
+		{
+			closeWebCam();
+			int i = cbxCamara.SelectedIndex;
+			string name = collection[i].MonikerString;
+			webCam = new VideoCaptureDevice(name);
+			webCam.NewFrame += new NewFrameEventHandler(watching);
+			webCam.Start();
+		}
+		private void closeWebCam()
+		{
+			if (webCam != null)
+			{
+				if (webCam.IsRunning)
+				{
+					webCam.SignalToStop();
+					webCam.WaitForStop();
+				}
+				webCam = null;
+			}
+
+			if (pb1.Image != null)
+			{
+				pb1.Image.Dispose();
+				pb1.Image = null;
+			}
+		}
+
+		private void MenuAddPaciente_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			closeWebCam();
+		}
+
+		private void btnCapturar_Click(object sender, EventArgs e)
+		{
+			if (webCam != null && webCam.IsRunning)
+			{
+				pb2.Image = pb1.Image;
+				pb2.SizeMode = PictureBoxSizeMode.StretchImage;
+
+			}
+		}
+	}
 }

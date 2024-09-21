@@ -83,6 +83,18 @@ namespace Base___V1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+
+        internal static System.Drawing.Bitmap dog_cat {
+            get {
+                object obj = ResourceManager.GetObject("dog-cat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+
         internal static System.Drawing.Bitmap hogar1 {
             get {
                 object obj = ResourceManager.GetObject("hogar1", resourceCulture);
