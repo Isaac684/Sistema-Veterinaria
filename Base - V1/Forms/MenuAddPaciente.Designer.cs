@@ -345,7 +345,7 @@
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(697, 551);
+			btnAgregar.Location = new Point(696, 551);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(170, 30);
             btnAgregar.TabIndex = 11;
