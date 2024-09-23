@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Base___V1.Forms;
+using Base___V1.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -69,11 +71,14 @@ namespace Base___V1
 
 
         private void Btn6_Click(object sender, EventArgs e)
-        {
-            PanelNav.Height = Btn6.Height;
-            PanelNav.Top = Btn6.Top;
-            Btn6.BackColor = Color.FromArgb(46, 51, 73);
-        }
+		{
+			PanelNav.Height = Btn6.Height;
+			PanelNav.Top = Btn6.Top;
+			Btn6.BackColor = Color.FromArgb(46, 51, 73);
+
+			SettingsForm form = new SettingsForm();
+			form.ShowDialog();
+		}
 
         private void Btn1_Leave(object sender, EventArgs e)
         {
