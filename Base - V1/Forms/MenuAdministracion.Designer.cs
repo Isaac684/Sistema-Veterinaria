@@ -40,9 +40,10 @@
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.FromArgb(32, 42, 64);
             panel3.Controls.Add(tblPacientes);
-            panel3.Location = new Point(12, 12);
+            panel3.Location = new Point(10, 9);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(855, 560);
+            panel3.Size = new Size(748, 420);
             panel3.TabIndex = 6;
             // 
             // tblPacientes
@@ -62,22 +63,22 @@
             tblPacientes.Dock = DockStyle.Fill;
             tblPacientes.GridColor = Color.FromArgb(158, 161, 176);
             tblPacientes.Location = new Point(0, 0);
+            tblPacientes.Margin = new Padding(3, 2, 3, 2);
             tblPacientes.Name = "tblPacientes";
             tblPacientes.RowHeadersWidth = 51;
-            tblPacientes.Size = new Size(855, 560);
+            tblPacientes.Size = new Size(748, 420);
             tblPacientes.TabIndex = 0;
             tblPacientes.CellClick += tblPacientes_CellClick;
             // 
             // MenuAdministracion
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(882, 593);
+            ClientSize = new Size(772, 445);
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.None;
-            MinimumSize = new Size(882, 593);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MenuAdministracion";
             Text = "Pantalla2";
             panel3.ResumeLayout(false);

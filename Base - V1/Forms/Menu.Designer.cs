@@ -132,6 +132,7 @@
             // 
             // Btn6
             // 
+            Btn6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Btn6.BackColor = Color.White;
             Btn6.FlatAppearance.BorderSize = 0;
             Btn6.FlatStyle = FlatStyle.Flat;
@@ -223,6 +224,7 @@
             Controls.Add(IblTittle);
             Controls.Add(panel1);
             Controls.Add(PnlFormLoader);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
             MinimumSize = new Size(1052, 685);
             Name = "Menu";

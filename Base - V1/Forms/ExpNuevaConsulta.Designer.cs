@@ -788,6 +788,7 @@
             // 
             // button1
             // 
+            button1.AutoSize = true;
             button1.BackColor = Color.FromArgb(0, 126, 249);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
@@ -796,7 +797,7 @@
             button1.Location = new Point(11, 861);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(140, 22);
+            button1.Size = new Size(140, 29);
             button1.TabIndex = 198;
             button1.Text = "Ver examen fisico";
             button1.UseVisualStyleBackColor = false;
@@ -819,6 +820,7 @@
             // btnNewConsulta
             // 
             btnNewConsulta.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnNewConsulta.AutoSize = true;
             btnNewConsulta.BackColor = Color.FromArgb(0, 126, 249);
             btnNewConsulta.FlatAppearance.BorderSize = 0;
             btnNewConsulta.FlatStyle = FlatStyle.Flat;
@@ -827,7 +829,7 @@
             btnNewConsulta.Location = new Point(577, 861);
             btnNewConsulta.Margin = new Padding(3, 2, 3, 2);
             btnNewConsulta.Name = "btnNewConsulta";
-            btnNewConsulta.Size = new Size(140, 22);
+            btnNewConsulta.Size = new Size(140, 29);
             btnNewConsulta.TabIndex = 196;
             btnNewConsulta.Text = "Agregar consulta";
             btnNewConsulta.UseVisualStyleBackColor = false;
@@ -1930,7 +1932,7 @@
             txtBoxMotivoConsulta.Location = new Point(165, 48);
             txtBoxMotivoConsulta.Margin = new Padding(3, 2, 3, 2);
             txtBoxMotivoConsulta.Name = "txtBoxMotivoConsulta";
-            txtBoxMotivoConsulta.Size = new Size(368, 26);
+            txtBoxMotivoConsulta.Size = new Size(317, 26);
             txtBoxMotivoConsulta.TabIndex = 84;
             // 
             // ExpNuevaConsulta
@@ -1939,7 +1941,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(32, 42, 64);
-            ClientSize = new Size(772, 445);
+            ClientSize = new Size(772, 461);
             Controls.Add(txtBoxMotivoConsulta);
             Controls.Add(label55);
             Controls.Add(panel3);
@@ -1949,7 +1951,6 @@
             Controls.Add(lblDatosPaciente);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(772, 445);
             Name = "ExpNuevaConsulta";
             Text = "ExpNuevaConsulta";
             panel1.ResumeLayout(false);

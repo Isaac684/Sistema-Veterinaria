@@ -46,9 +46,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(116, 27);
+            label1.Location = new Point(102, 20);
             label1.Name = "label1";
-            label1.Size = new Size(209, 29);
+            label1.Size = new Size(166, 24);
             label1.TabIndex = 0;
             label1.Text = "Ingreso de vacuna";
             // 
@@ -57,9 +57,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(12, 96);
+            label2.Location = new Point(10, 72);
             label2.Name = "label2";
-            label2.Size = new Size(180, 22);
+            label2.Size = new Size(148, 18);
             label2.TabIndex = 1;
             label2.Text = "Nombre de la vacuna";
             // 
@@ -68,9 +68,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(12, 151);
+            label3.Location = new Point(10, 113);
             label3.Name = "label3";
-            label3.Size = new Size(170, 22);
+            label3.Size = new Size(139, 18);
             label3.TabIndex = 2;
             label3.Text = "Fecha de aplicación";
             // 
@@ -79,9 +79,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(12, 208);
+            label4.Location = new Point(10, 156);
             label4.Name = "label4";
-            label4.Size = new Size(122, 22);
+            label4.Size = new Size(103, 18);
             label4.TabIndex = 3;
             label4.Text = "Proxima docis";
             // 
@@ -90,53 +90,59 @@
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(12, 269);
+            label5.Location = new Point(10, 202);
             label5.Name = "label5";
-            label5.Size = new Size(29, 22);
+            label5.Size = new Size(24, 18);
             label5.TabIndex = 4;
             label5.Text = "Dr";
             // 
             // txtNombreVacuna
             // 
-            txtNombreVacuna.Location = new Point(208, 96);
+            txtNombreVacuna.Location = new Point(182, 72);
+            txtNombreVacuna.Margin = new Padding(3, 2, 3, 2);
             txtNombreVacuna.Name = "txtNombreVacuna";
-            txtNombreVacuna.Size = new Size(213, 27);
+            txtNombreVacuna.Size = new Size(187, 23);
             txtNombreVacuna.TabIndex = 5;
             txtNombreVacuna.TextAlign = HorizontalAlignment.Right;
             // 
             // dateAplicacion
             // 
-            dateAplicacion.Location = new Point(208, 151);
+            dateAplicacion.Location = new Point(182, 113);
+            dateAplicacion.Margin = new Padding(3, 2, 3, 2);
             dateAplicacion.Name = "dateAplicacion";
-            dateAplicacion.Size = new Size(213, 27);
+            dateAplicacion.Size = new Size(187, 23);
             dateAplicacion.TabIndex = 6;
             // 
             // dateProxima
             // 
-            dateProxima.Location = new Point(208, 208);
+            dateProxima.Location = new Point(182, 156);
+            dateProxima.Margin = new Padding(3, 2, 3, 2);
             dateProxima.Name = "dateProxima";
-            dateProxima.Size = new Size(213, 27);
+            dateProxima.Size = new Size(187, 23);
             dateProxima.TabIndex = 7;
             // 
             // txtDr
             // 
-            txtDr.Location = new Point(68, 264);
+            txtDr.Location = new Point(60, 198);
+            txtDr.Margin = new Padding(3, 2, 3, 2);
             txtDr.Name = "txtDr";
-            txtDr.Size = new Size(340, 27);
+            txtDr.Size = new Size(298, 23);
             txtDr.TabIndex = 8;
             txtDr.TextAlign = HorizontalAlignment.Right;
             // 
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAgregar.AutoSize = true;
             btnAgregar.BackColor = Color.FromArgb(0, 126, 249);
             btnAgregar.FlatAppearance.BorderSize = 0;
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(238, 345);
+            btnAgregar.Location = new Point(208, 252);
+            btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(170, 30);
+            btnAgregar.Size = new Size(149, 29);
             btnAgregar.TabIndex = 12;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
@@ -145,14 +151,16 @@
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.AutoSize = true;
             btnCancelar.BackColor = Color.Gray;
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(22, 345);
+            btnCancelar.Location = new Point(19, 252);
+            btnCancelar.Margin = new Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(170, 30);
+            btnCancelar.Size = new Size(149, 29);
             btnCancelar.TabIndex = 13;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -160,10 +168,10 @@
             // 
             // VacunaForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 42, 64);
-            ClientSize = new Size(460, 398);
+            ClientSize = new Size(402, 298);
             Controls.Add(btnCancelar);
             Controls.Add(btnAgregar);
             Controls.Add(txtDr);
@@ -176,6 +184,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "VacunaForm";
             RightToLeft = RightToLeft.Yes;
             StartPosition = FormStartPosition.CenterParent;

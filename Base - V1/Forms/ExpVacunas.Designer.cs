@@ -39,18 +39,19 @@
             flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BackColor = Color.DarkCyan;
-            flowLayoutPanel1.Location = new Point(12, 79);
+            flowLayoutPanel1.Location = new Point(10, 59);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(835, 489);
+            flowLayoutPanel1.Size = new Size(731, 367);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // lblNombrePaciente
             // 
             lblNombrePaciente.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNombrePaciente.ForeColor = Color.FromArgb(158, 161, 176);
-            lblNombrePaciente.Location = new Point(306, 20);
+            lblNombrePaciente.Location = new Point(268, 15);
             lblNombrePaciente.Name = "lblNombrePaciente";
-            lblNombrePaciente.Size = new Size(389, 42);
+            lblNombrePaciente.Size = new Size(340, 32);
             lblNombrePaciente.TabIndex = 63;
             lblNombrePaciente.Text = "Nombre del chucho";
             // 
@@ -58,23 +59,25 @@
             // 
             lblDatosPaciente.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDatosPaciente.ForeColor = Color.FromArgb(158, 161, 176);
-            lblDatosPaciente.Location = new Point(12, 20);
+            lblDatosPaciente.Location = new Point(10, 15);
             lblDatosPaciente.Name = "lblDatosPaciente";
-            lblDatosPaciente.Size = new Size(334, 42);
+            lblDatosPaciente.Size = new Size(292, 32);
             lblDatosPaciente.TabIndex = 62;
             lblDatosPaciente.Text = "Control de Vacunas:";
             // 
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAgregar.AutoSize = true;
             btnAgregar.BackColor = Color.FromArgb(0, 126, 249);
             btnAgregar.FlatAppearance.BorderSize = 0;
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(678, 27);
+            btnAgregar.Location = new Point(593, 20);
+            btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(170, 30);
+            btnAgregar.Size = new Size(149, 29);
             btnAgregar.TabIndex = 64;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
@@ -82,22 +85,23 @@
             // 
             // ExpVacunas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(32, 42, 64);
-            ClientSize = new Size(860, 593);
+            ClientSize = new Size(752, 445);
             Controls.Add(btnAgregar);
             Controls.Add(lblNombrePaciente);
             Controls.Add(lblDatosPaciente);
             Controls.Add(flowLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
-            MinimumSize = new Size(860, 593);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ExpVacunas";
             Text = "ExpVacunas";
             Activated += ExpVacunas_Activated;
             Load += ExpVacunas_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

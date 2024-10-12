@@ -41,7 +41,7 @@
             PnlFormLoader2.Location = new Point(10, 9);
             PnlFormLoader2.Margin = new Padding(3, 2, 3, 2);
             PnlFormLoader2.Name = "PnlFormLoader2";
-            PnlFormLoader2.Size = new Size(748, 388);
+            PnlFormLoader2.Size = new Size(675, 233);
             PnlFormLoader2.TabIndex = 0;
             // 
             // btnHistorial
@@ -53,7 +53,7 @@
             btnHistorial.FlatStyle = FlatStyle.Flat;
             btnHistorial.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHistorial.ForeColor = Color.White;
-            btnHistorial.Location = new Point(435, 402);
+            btnHistorial.Location = new Point(362, 250);
             btnHistorial.Margin = new Padding(3, 2, 3, 2);
             btnHistorial.Name = "btnHistorial";
             btnHistorial.Size = new Size(168, 29);
@@ -64,13 +64,14 @@
             // 
             // btnNewConsulta
             // 
+            btnNewConsulta.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnNewConsulta.AutoSize = true;
             btnNewConsulta.BackColor = Color.FromArgb(0, 126, 249);
             btnNewConsulta.FlatAppearance.BorderSize = 0;
             btnNewConsulta.FlatStyle = FlatStyle.Flat;
             btnNewConsulta.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNewConsulta.ForeColor = Color.White;
-            btnNewConsulta.Location = new Point(10, 402);
+            btnNewConsulta.Location = new Point(10, 250);
             btnNewConsulta.Margin = new Padding(3, 2, 3, 2);
             btnNewConsulta.Name = "btnNewConsulta";
             btnNewConsulta.Size = new Size(133, 29);
@@ -88,7 +89,7 @@
             btnVacunas.FlatStyle = FlatStyle.Flat;
             btnVacunas.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVacunas.ForeColor = Color.White;
-            btnVacunas.Location = new Point(609, 402);
+            btnVacunas.Location = new Point(536, 250);
             btnVacunas.Margin = new Padding(3, 2, 3, 2);
             btnVacunas.Name = "btnVacunas";
             btnVacunas.Size = new Size(149, 29);
@@ -102,14 +103,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(772, 445);
+            ClientSize = new Size(699, 290);
             Controls.Add(btnVacunas);
             Controls.Add(btnHistorial);
             Controls.Add(btnNewConsulta);
             Controls.Add(PnlFormLoader2);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(772, 445);
             Name = "ExpedienteVistaPrincipal";
             Text = "Expediente";
             ResumeLayout(false);

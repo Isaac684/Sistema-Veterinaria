@@ -103,7 +103,7 @@
             panel1.Location = new Point(10, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(804, 598);
+            panel1.Size = new Size(804, 618);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -130,7 +130,7 @@
             btnCapturar.Location = new Point(21, 573);
             btnCapturar.Margin = new Padding(3, 2, 3, 2);
             btnCapturar.Name = "btnCapturar";
-            btnCapturar.Size = new Size(94, 29);
+            btnCapturar.Size = new Size(111, 29);
             btnCapturar.TabIndex = 12;
             btnCapturar.Text = "Capturar";
             btnCapturar.UseVisualStyleBackColor = false;
@@ -184,7 +184,7 @@
             label13.AutoSize = true;
             label13.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.White;
-            label13.Location = new Point(301, 314);
+            label13.Location = new Point(318, 314);
             label13.Name = "label13";
             label13.Size = new Size(70, 18);
             label13.TabIndex = 36;
@@ -194,7 +194,7 @@
             // 
             txboxTelefono.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txboxTelefono.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txboxTelefono.Location = new Point(385, 311);
+            txboxTelefono.Location = new Point(402, 311);
             txboxTelefono.Margin = new Padding(3, 2, 3, 2);
             txboxTelefono.Name = "txboxTelefono";
             txboxTelefono.Size = new Size(385, 26);
@@ -219,7 +219,7 @@
             txboxCorreo.Location = new Point(133, 311);
             txboxCorreo.Margin = new Padding(3, 2, 3, 2);
             txboxCorreo.Name = "txboxCorreo";
-            txboxCorreo.Size = new Size(163, 26);
+            txboxCorreo.Size = new Size(180, 26);
             txboxCorreo.TabIndex = 32;
             // 
             // label11
@@ -242,7 +242,7 @@
             txboxDireccion.Margin = new Padding(3, 2, 3, 2);
             txboxDireccion.Multiline = true;
             txboxDireccion.Name = "txboxDireccion";
-            txboxDireccion.Size = new Size(636, 38);
+            txboxDireccion.Size = new Size(653, 38);
             txboxDireccion.TabIndex = 30;
             // 
             // label10
@@ -264,7 +264,7 @@
             txboxPropietario.Location = new Point(133, 206);
             txboxPropietario.Margin = new Padding(3, 2, 3, 2);
             txboxPropietario.Name = "txboxPropietario";
-            txboxPropietario.Size = new Size(636, 26);
+            txboxPropietario.Size = new Size(653, 26);
             txboxPropietario.TabIndex = 28;
             // 
             // label8
@@ -285,7 +285,7 @@
             txboxSenias.Location = new Point(677, 119);
             txboxSenias.Margin = new Padding(3, 2, 3, 2);
             txboxSenias.Name = "txboxSenias";
-            txboxSenias.Size = new Size(92, 26);
+            txboxSenias.Size = new Size(109, 26);
             txboxSenias.TabIndex = 24;
             // 
             // comboBoxSexo
@@ -355,7 +355,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(385, 72);
+            label4.Location = new Point(402, 72);
             label4.Name = "label4";
             label4.Size = new Size(48, 18);
             label4.TabIndex = 16;
@@ -367,7 +367,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(78, 72);
+            label3.Location = new Point(95, 72);
             label3.Name = "label3";
             label3.Size = new Size(70, 18);
             label3.TabIndex = 15;
@@ -377,7 +377,7 @@
             // 
             txboxRaza.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             txboxRaza.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txboxRaza.Location = new Point(448, 70);
+            txboxRaza.Location = new Point(465, 70);
             txboxRaza.Margin = new Padding(3, 2, 3, 2);
             txboxRaza.Name = "txboxRaza";
             txboxRaza.Size = new Size(322, 26);
@@ -387,7 +387,7 @@
             // 
             txboxEspecie.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             txboxEspecie.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txboxEspecie.Location = new Point(164, 70);
+            txboxEspecie.Location = new Point(181, 70);
             txboxEspecie.Margin = new Padding(3, 2, 3, 2);
             txboxEspecie.Name = "txboxEspecie";
             txboxEspecie.Size = new Size(216, 26);
@@ -412,7 +412,7 @@
             txboxPaciente.Location = new Point(107, 70);
             txboxPaciente.Margin = new Padding(3, 2, 3, 2);
             txboxPaciente.Name = "txboxPaciente";
-            txboxPaciente.Size = new Size(0, 26);
+            txboxPaciente.Size = new Size(17, 26);
             txboxPaciente.TabIndex = 10;
             // 
             // label1
@@ -432,7 +432,7 @@
             IblTittle.ForeColor = Color.FromArgb(158, 161, 176);
             IblTittle.Location = new Point(21, 159);
             IblTittle.Name = "IblTittle";
-            IblTittle.Size = new Size(395, 32);
+            IblTittle.Size = new Size(412, 32);
             IblTittle.TabIndex = 8;
             IblTittle.Text = "Datos del propietario";
             // 
@@ -458,14 +458,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(818, 662);
             Controls.Add(btnAgregar);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(772, 445);
             Name = "MenuAddPaciente";
             Text = "Pantalla3";
             FormClosed += MenuAddPaciente_FormClosed;

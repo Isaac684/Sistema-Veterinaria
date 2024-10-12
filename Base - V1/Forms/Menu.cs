@@ -26,9 +26,10 @@ namespace Base___V1
 
             IblTittle.Text = "Administración";
             this.PnlFormLoader.Controls.Clear();
-            MenuAdministracion pantalla2_vrb = new MenuAdministracion(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            MenuAdministracion pantalla2_vrb = new MenuAdministracion(this) { Dock = DockStyle.Fill, TopLevel = false};
             pantalla2_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(pantalla2_vrb);
+            pantalla2_vrb.BringToFront();
             pantalla2_vrb.Show();
         }
 
@@ -41,7 +42,7 @@ namespace Base___V1
 
             IblTittle.Text = "Administración";
             this.PnlFormLoader.Controls.Clear();
-            MenuAdministracion pantalla2_vrb = new MenuAdministracion(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            MenuAdministracion pantalla2_vrb = new MenuAdministracion(this) { Dock = DockStyle.Fill, TopLevel = false};
             pantalla2_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(pantalla2_vrb);
             pantalla2_vrb.Show();
@@ -56,7 +57,7 @@ namespace Base___V1
 
             IblTittle.Text = "Agregar paciente";
             this.PnlFormLoader.Controls.Clear();
-            MenuAddPaciente pantalla3_vrb = new MenuAddPaciente() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            MenuAddPaciente pantalla3_vrb = new MenuAddPaciente() { Dock = DockStyle.Fill, TopLevel = false};
             pantalla3_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(pantalla3_vrb);
             pantalla3_vrb.Show();
