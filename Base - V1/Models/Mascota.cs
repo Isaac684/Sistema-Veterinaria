@@ -66,9 +66,12 @@ namespace Base___V1.Models
 		{
 			using (MemoryStream memoryStream = new MemoryStream())
 			{
-				imagen.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
-				byte[] imageBytes = memoryStream.ToArray();
-				this.imagen = Convert.ToBase64String(imageBytes);
+                if(imagen != null)
+                {
+				    imagen.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
+				    byte[] imageBytes = memoryStream.ToArray();
+				    this.imagen = Convert.ToBase64String(imageBytes);
+                }
 			}
 		}
 		public void setStringImage(String imagen) { this.imagen = imagen; }

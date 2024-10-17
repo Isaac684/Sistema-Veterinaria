@@ -109,7 +109,7 @@ namespace Base___V1
 				d.setDireccion(txtDireccion.Text);
 				d.setCorreo(txtCorreo.Text);
 				d.setTelefono(txtTelefono.Text);
-
+				data = new QuerysSQL();
 				data.editarDueño(d);
 				data.editarDatosPaciente(m);
 				loadInformacion();

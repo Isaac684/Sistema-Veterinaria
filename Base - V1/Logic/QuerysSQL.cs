@@ -181,8 +181,9 @@ namespace Base___V1.Logic
         public void editarDatosPaciente(Mascota m)
         {
             try
-            {
-                Comando.Connection = Conexion.abrirConexion();
+			{
+				Conexion.cerrarConexion();
+				Comando.Connection = Conexion.abrirConexion();
                 Comando.CommandText = "UPDATE tb_mascota SET nombre = @nombre, especie = @especie, raza = @raza, edad = @edad, sexo = @sexo, color = @color, señas = @señas, foto = @foto WHERE idMascota = @idMascota";
 
                 Comando.Parameters.AddWithValue("@nombre", m.getNombre());
@@ -205,6 +206,7 @@ namespace Base___V1.Logic
             }
             finally
             {
+                Comando.Attributes.Clear();
                 Conexion.cerrarConexion();
             }
 

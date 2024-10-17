@@ -61,6 +61,7 @@ namespace Base___V1
                 {
                     if (ValidarNumeroTelefono(txboxTelefono.Text))
                     {
+
                         Dueño dueno = new Dueño();
 
                         dueno.setNombre(txboxPropietario.Text);
@@ -68,7 +69,9 @@ namespace Base___V1
                         dueno.setDireccion(txboxDireccion.Text);
                         dueno.setTelefono(txboxTelefono.Text);
 
-                        data.InsertarDueno(dueno);
+						data = new QuerysSQL();
+
+						data.InsertarDueno(dueno);
 
                         Mascota mascota = new Mascota();
                         mascota.setNombre(txboxPaciente.Text);
@@ -140,7 +143,7 @@ namespace Base___V1
 		}
 		private void watching(object sender, NewFrameEventArgs e)
 		{
-			lock (imageLock) // Bloquea el acceso simultáneo a la camara
+			lock (imageLock)
 			{
 				if (e.Frame == null) return;
 
@@ -155,13 +158,28 @@ namespace Base___V1
 					return;
 				}
 
-				if (pb1.Image != null)
+				// Uso de la imagen anterior de forma segura
+				if (pb1.InvokeRequired)
 				{
-					pb1.Image.Dispose();
+					pb1.Invoke(new Action(() =>
+					{
+						if (pb1.Image != null)
+						{
+							pb1.Image.Dispose();
+						}
+						pb1.Image = newImage;
+						pb1.SizeMode = PictureBoxSizeMode.StretchImage;
+					}));
 				}
-
-				pb1.Image = newImage;
-				pb1.SizeMode = PictureBoxSizeMode.StretchImage;
+				else
+				{
+					if (pb1.Image != null)
+					{
+						pb1.Image.Dispose();
+					}
+					pb1.Image = newImage;
+					pb1.SizeMode = PictureBoxSizeMode.StretchImage;
+				}
 			}
 		}
 
