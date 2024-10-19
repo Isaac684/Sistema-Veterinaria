@@ -8,11 +8,11 @@ namespace Base___V1.Models
 {
     public class Dueño
     {
-        private int idDueno;
-        private string nombre;
-        private string direccion;
-        private string correo;
-        private string telefono;
+        public int idDueno {get;set;}
+        public string nombre {get;set;}
+        public string direccion {get;set;}
+        public string correo {get;set;}
+        public string telefono { get; set; }
 
         public Dueño(int idDueno, string nombre, string direccion, string correo, string telefono)
         {

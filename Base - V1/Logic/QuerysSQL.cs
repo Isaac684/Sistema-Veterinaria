@@ -989,6 +989,160 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 				return false;
 			}
 		}
+
+		//citas
+		public List<Cita> getCitas()
+		{
+			List<Cita> citas = new List<Cita>();
+
+			try
+			{
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "SELECT * FROM tb_gestion_citas";
+				Comando.CommandType = CommandType.Text;
+				var dr = Comando.ExecuteReader();
+
+				while (dr.Read())
+				{
+					Cita cita = new Cita
+					{
+						Id = dr.GetInt32("id_cita"),
+						IdMascota = dr.GetInt32("id_mascota"),
+						Fecha = dr.GetString("fecha"),
+						Descripcion = dr.GetString("descripcion"),
+					};
+
+					citas.Add(cita);
+				}
+
+				return citas;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al obtener las vacunas " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return citas;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+        public List<Dueño> getDueños()
+		{
+			List<Dueño> dues = new List<Dueño>();
+
+			try
+			{
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "SELECT * FROM tb_dueño";
+				Comando.CommandType = CommandType.Text;
+				var dr = Comando.ExecuteReader();
+
+				while (dr.Read())
+				{
+					Dueño due = new Dueño
+					{
+						idDueno = dr.GetInt32("idDueño"),
+						nombre = dr.GetString("nombre"),
+						direccion = dr.GetString("direccion"),
+						correo = dr.GetString("correo"),
+						telefono = dr.GetString("telefono"),
+					};
+
+					dues.Add(due);
+				}
+
+				return dues;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al obtener las vacunas " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return dues;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+		public bool insertCita(Cita cita)
+		{
+			try
+			{
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "INSERT INTO tb_gestion_citas (id_mascota, fecha, descripcion) VALUES (@id_mascota, @fecha, @descripcion)";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@id_mascota", cita.IdMascota);
+				Comando.Parameters.AddWithValue("@fecha", cita.Fecha);
+				Comando.Parameters.AddWithValue("@descripcion", cita.Descripcion);
+
+				int rowsAffected = Comando.ExecuteNonQuery();
+
+				return rowsAffected > 0;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al crear la cita " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+		public bool putCita(Cita cita)
+		{
+			try
+			{
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "UPDATE tb_gestion_citas SET id_mascota = @id_mascota, fecha = @fecha, descripcion = @descripcion WHERE id_cita = @id_cita";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@id_cita", cita.Id);
+				Comando.Parameters.AddWithValue("@id_mascota", cita.IdMascota);
+				Comando.Parameters.AddWithValue("@fecha", cita.Fecha);
+				Comando.Parameters.AddWithValue("@descripcion", cita.Descripcion);
+
+				int rowsAffected = Comando.ExecuteNonQuery();
+
+				return rowsAffected > 0;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al actualizar la cita " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+		public bool deleteCita(int idCita)
+		{
+			try
+			{
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "DELETE FROM tb_gestion_citas WHERE id_cita = @id_cita";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@id_cita", idCita);
+
+				int rowsAffected = Comando.ExecuteNonQuery();
+
+				return rowsAffected > 0;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al eliminar la cita " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+
+
 	}
 }   
 
