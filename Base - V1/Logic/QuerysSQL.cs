@@ -149,6 +149,41 @@ namespace Base___V1.Logic
                 return m;
             }
         }
+
+        public List<Mascota> getMascotas()
+        {
+            List<Mascota> list = new List<Mascota>();
+
+            Comando.Connection = Conexion.abrirConexion();
+            Comando.CommandText = $"SELECT * FROM tb_mascota";
+            Comando.CommandType = CommandType.Text;
+            MySqlDataReader dr = Comando.ExecuteReader();
+
+            if (dr.Read())
+            {
+                Mascota m = new Mascota();
+                m.setIdMascota(int.Parse(dr["idMascota"].ToString()));
+                m.setNombre(dr["nombre"].ToString());
+                m.setEspecie(dr["especie"].ToString());
+                m.setRaza(dr["raza"].ToString());
+                m.setEdad(int.Parse(dr["edad"].ToString()));
+                m.setSexo(dr["sexo"].ToString());
+                m.setColor(dr["color"].ToString());
+                m.setSenias(dr["señas"].ToString());
+                m.setIdDuenio(int.Parse(dr["idDueño"].ToString()));
+                m.setFechaIngreso(dr["fecha_ingreso"].ToString());
+                m.setStringImage(dr["foto"].ToString());
+                Conexion.cerrarConexion();
+                list.Add(m);
+            }
+            else
+            {
+                Conexion.cerrarConexion();
+                MessageBox.Show("Error al cargar la informacion de la mascota", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return list;
+            }
+            return list;
+        }
         public Dueño getDueño(int id)
         {
             Dueño d = new Dueño();

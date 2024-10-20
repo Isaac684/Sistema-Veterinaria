@@ -34,7 +34,7 @@
     <Compile Update="Forms\VacunaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\InternalViews\buscarDueñoForm.cs">
+    <Compile Update="Forms\InternalViews\buscarMascotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Logic\SettingsForm.cs">

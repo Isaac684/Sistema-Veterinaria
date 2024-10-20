@@ -70,7 +70,7 @@ namespace Base___V1
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			using (buscarDueñoForm searchForm = new buscarDueñoForm())
+			using (buscarMascotaForm searchForm = new buscarMascotaForm())
 			{
 				if (searchForm.ShowDialog() == DialogResult.OK)
 				{

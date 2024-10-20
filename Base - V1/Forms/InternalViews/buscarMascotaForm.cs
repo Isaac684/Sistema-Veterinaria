@@ -13,15 +13,18 @@ using System.Windows.Forms;
 
 namespace Base___V1.Logic
 {
-	public partial class buscarDueñoForm : Form
+	public partial class buscarMascotaForm : Form
 	{
 		public Dueño dueño { get; set; }
 		public QuerysSQL data = new QuerysSQL();
+		public Mascota mascota { get; set; }
+		public List<Mascota> mascotas = new List<Mascota>();
 		public List<Dueño> dueños = new List<Dueño>();
-		public buscarDueñoForm()
+		public buscarMascotaForm()
 		{
 			InitializeComponent();
 			this.dueños = data.getDueños();
+			this.mascotas = data.getMascotas();
 			fillTable();
 		}
 		private void fillTable()
@@ -29,14 +32,22 @@ namespace Base___V1.Logic
 			tbl_dues.Rows.Clear();
 			tbl_dues.Columns.Clear();
 			tbl_dues.Columns.Add("id", "Id");
-			tbl_dues.Columns.Add("nombre", "Nombre");
-			tbl_dues.Columns.Add("telefono", "Telefono");
+            tbl_dues.Columns.Add("dueño", "Dueño");
+            tbl_dues.Columns.Add("mascota", "Mascota");
+            tbl_dues.Columns.Add("telefono", "Telefono");
+			
 			foreach (Dueño item in dueños)
-            {
-				if(item.getNombre().ToLower().Contains(txtSearch.Text.ToLower()) || item.getTelefono().Contains(txtSearch.Text))
+			{
+				foreach (var item1 in mascotas)
 				{
-					tbl_dues.Rows.Add(item.idDueno,item.getNombre(), item.getTelefono());
-				}
+					if(item.getNombre().ToLower().Contains(txtSearch.Text.ToLower()) || item.getTelefono().Contains(txtSearch.Text))
+					{
+						if (item.get.Equals(item.idDueno))
+						{
+                            tbl_dues.Rows.Add(item.idDueno, item.getNombre(),  item1.nombre, item.getTelefono());
+                        }
+                    }
+                }
             }
         }
 

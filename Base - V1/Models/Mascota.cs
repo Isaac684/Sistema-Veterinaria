@@ -10,7 +10,7 @@ namespace Base___V1.Models
     public class Mascota
     {
         private int idMascota;
-        private string nombre;
+        public string nombre {  get; set; }
         private string especie;
         private string raza;
         private int edad;
