@@ -157,5 +157,22 @@ namespace Base___V1
 			this.PnlFormLoader.Controls.Add(pantalla3_vrb);
 			pantalla3_vrb.Show();
 		}
+
+		private void button1_Click_2(object sender, EventArgs e)
+		{
+
+			PanelNav.Width = btnInv.Width;  // Ajusta el ancho al ancho del botón
+			PanelNav.Left = btnInv.Left;    // Cambia solo la posición horizontal
+			PanelNav.Top = btnInv.Bottom - 5;
+			btnInv.BackColor = Color.FromArgb(6, 77, 181);
+
+			IblTittle.Text = "Gestionar inventario";
+			this.PnlFormLoader.Controls.Clear();
+			VentasForm pantalla3_vrb = new VentasForm() { Dock = DockStyle.Fill, TopLevel = false };
+			pantalla3_vrb.FormBorderStyle = FormBorderStyle.None;
+			this.PnlFormLoader.Controls.Add(pantalla3_vrb);
+			pantalla3_vrb.Show();
+
+		}
 	}
 }

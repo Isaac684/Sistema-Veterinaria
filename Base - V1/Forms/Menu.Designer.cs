@@ -43,6 +43,7 @@
 			Btn2 = new Button();
 			Btn1 = new Button();
 			IblTittle = new Label();
+			button1 = new Button();
 			panel1.SuspendLayout();
 			panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -142,6 +143,7 @@
 			// 
 			panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			panel2.BackColor = Color.White;
+			panel2.Controls.Add(button1);
 			panel2.Controls.Add(btnInv);
 			panel2.Controls.Add(Btn6);
 			panel2.Controls.Add(pictureBox1);
@@ -249,6 +251,24 @@
 			IblTittle.Text = "Administración";
 			IblTittle.TextAlign = ContentAlignment.MiddleCenter;
 			// 
+			// button1
+			// 
+			button1.BackColor = Color.FromArgb(6, 77, 181);
+			button1.FlatAppearance.BorderSize = 0;
+			button1.FlatStyle = FlatStyle.Flat;
+			button1.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			button1.ForeColor = Color.White;
+			button1.Image = (Image)resources.GetObject("button1.Image");
+			button1.ImageAlign = ContentAlignment.TopRight;
+			button1.Location = new Point(12, 67);
+			button1.Name = "button1";
+			button1.Size = new Size(200, 49);
+			button1.TabIndex = 11;
+			button1.Text = "Ventas";
+			button1.TextImageRelation = TextImageRelation.TextBeforeImage;
+			button1.UseVisualStyleBackColor = false;
+			button1.Click += button1_Click_2;
+			// 
 			// Menu
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
@@ -287,5 +307,6 @@
         private Label IblTittle;
 		public Button btnCita;
 		public Button btnInv;
+		public Button button1;
 	}
 }

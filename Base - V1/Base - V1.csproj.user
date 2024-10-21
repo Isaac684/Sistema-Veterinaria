@@ -25,6 +25,12 @@
     <Compile Update="Forms\InternalViews\ActualizarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\InternalViews\AgregarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\InternalViews\buscarInventarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\InventarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -44,6 +50,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\InternalViews\buscarMascotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\VentasForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Logic\SettingsForm.cs">
