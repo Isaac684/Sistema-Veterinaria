@@ -92,7 +92,7 @@ namespace Base___V1
 					Dueño d = data.getDueño(ids[i].idDueño);
 					List<Vacunas> v = data.obtenerVacunas(ids[i].idMascota);
 					DateTime fourDaysAfter = hoy.AddDays(4);
-
+					List<Cita> citas = data.getCitas(ids[i].idMascota);
 					foreach (Vacunas itemVacuna in v)
 					{
 						DateTime proxDate;
@@ -104,7 +104,17 @@ namespace Base___V1
 								"Recordatorio de vacuna para tu mascota " + m.getNombre(), itemVacuna.Nombre);
 						}
 					}
-				}
+					foreach (Cita itemCita in citas)
+					{
+						DateTime proxDate;
+						if (DateTime.TryParse(itemCita.Fecha, out proxDate) && IsWithinRange(proxDate, hoy, fourDaysAfter))
+							{
+								TimeSpan diferencia = proxDate - hoy;
+								EnvioCorreo envio2 = new EnvioCorreo(d.getCorreo(), d.getNombre(), m.getNombre(), diferencia.Days,
+										"Recordatorio de consulta para tu mascota " + m.getNombre());
+							}
+						}
+					}
 
 				// Escribir la fecha actual después de enviar los correos
 

@@ -19,6 +19,15 @@
     <Compile Update="Forms\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\InternalViews\AgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\InternalViews\ActualizarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\InventarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Menu.cs">
       <SubType>Form</SubType>
     </Compile>

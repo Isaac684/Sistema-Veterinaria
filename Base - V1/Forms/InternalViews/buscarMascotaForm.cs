@@ -40,9 +40,9 @@ namespace Base___V1.Logic
 			{
 				foreach (var item1 in mascotas)
 				{
-					if(item.getNombre().ToLower().Contains(txtSearch.Text.ToLower()) || item.getTelefono().Contains(txtSearch.Text))
+					if (item.getIdDueno() == item1.getIdDuenio())
 					{
-						if (item.get.Equals(item.idDueno))
+						if(item.getNombre().ToLower().Contains(txtSearch.Text.ToLower()) || item.getTelefono().Contains(txtSearch.Text))
 						{
                             tbl_dues.Rows.Add(item.idDueno, item.getNombre(),  item1.nombre, item.getTelefono());
                         }
@@ -62,6 +62,13 @@ namespace Base___V1.Logic
 					if (due.idDueno.ToString().Equals(columnValue))
 					{
 						this.dueño = due;
+						foreach (var item in mascotas)
+						{
+							if(item.getIdDuenio() == due.idDueno)
+							{
+								this.mascota = item;
+							}
+						}
 						DialogResult = DialogResult.OK;
 						Close();
 					}

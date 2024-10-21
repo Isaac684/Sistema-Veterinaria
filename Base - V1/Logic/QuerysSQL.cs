@@ -154,34 +154,39 @@ namespace Base___V1.Logic
         {
             List<Mascota> list = new List<Mascota>();
 
-            Comando.Connection = Conexion.abrirConexion();
-            Comando.CommandText = $"SELECT * FROM tb_mascota";
-            Comando.CommandType = CommandType.Text;
-            MySqlDataReader dr = Comando.ExecuteReader();
+            try
+            {
+                Comando.Connection = Conexion.abrirConexion();
+                Comando.CommandText = $"SELECT * FROM tb_mascota";
+                Comando.CommandType = CommandType.Text;
+                MySqlDataReader dr = Comando.ExecuteReader();
 
-            if (dr.Read())
-            {
-                Mascota m = new Mascota();
-                m.setIdMascota(int.Parse(dr["idMascota"].ToString()));
-                m.setNombre(dr["nombre"].ToString());
-                m.setEspecie(dr["especie"].ToString());
-                m.setRaza(dr["raza"].ToString());
-                m.setEdad(int.Parse(dr["edad"].ToString()));
-                m.setSexo(dr["sexo"].ToString());
-                m.setColor(dr["color"].ToString());
-                m.setSenias(dr["señas"].ToString());
-                m.setIdDuenio(int.Parse(dr["idDueño"].ToString()));
-                m.setFechaIngreso(dr["fecha_ingreso"].ToString());
-                m.setStringImage(dr["foto"].ToString());
+                while (dr.Read())
+                {
+                    Mascota mascota = new Mascota
+                    {
+                        idMascota = int.Parse(dr["idMascota"].ToString()),
+                        nombre = dr["nombre"].ToString(),
+                        especie = dr["especie"].ToString(),
+                        raza = dr["raza"].ToString(),
+                        edad = int.Parse(dr["edad"].ToString()),
+                        sexo = dr["sexo"].ToString(),
+                        color = dr["color"].ToString(),
+                        senias = dr["señas"].ToString(),
+                        idDuenio = int.Parse(dr["idDueño"].ToString()),
+                        fechaIngreso = dr["fecha_ingreso"].ToString(),
+                        imagen = dr["foto"].ToString()
+                    }; 
+					list.Add(mascota);
+                }
                 Conexion.cerrarConexion();
-                list.Add(m);
             }
-            else
-            {
-                Conexion.cerrarConexion();
-                MessageBox.Show("Error al cargar la informacion de la mascota", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return list;
-            }
+            catch (Exception ex) {
+
+				Conexion.cerrarConexion();
+				MessageBox.Show("Error al cargar la informacion de la mascota", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
             return list;
         }
         public Dueño getDueño(int id)
@@ -1033,7 +1038,12 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 			try
 			{
 				Comando.Connection = Conexion.abrirConexion();
-				Comando.CommandText = "SELECT * FROM tb_gestion_citas";
+				Comando.CommandText = @"
+		        SELECT c.id_cita, c.id_mascota, c.fecha, c.descripcion, 
+		        d.idDueño, d.nombre, d.direccion, d.telefono
+		        FROM tb_gestion_citas c
+		        JOIN tb_mascota m ON c.id_mascota = m.idMascota
+		        JOIN tb_dueño d ON m.idDueño = d.idDueño";
 				Comando.CommandType = CommandType.Text;
 				var dr = Comando.ExecuteReader();
 
@@ -1045,6 +1055,13 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 						IdMascota = dr.GetInt32("id_mascota"),
 						Fecha = dr.GetString("fecha"),
 						Descripcion = dr.GetString("descripcion"),
+						Dueño = new Dueño
+						{
+							idDueno= dr.GetInt32("idDueño"),
+							nombre = dr.GetString("nombre"),
+							direccion = dr.GetString("direccion"),
+							telefono = dr.GetString("telefono")
+						}
 					};
 
 					citas.Add(cita);
@@ -1054,7 +1071,7 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show("Error al obtener las vacunas " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Error al obtener las citas y dueños: " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return citas;
 			}
 			finally
@@ -1062,7 +1079,60 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 				Conexion.cerrarConexion();
 			}
 		}
-        public List<Dueño> getDueños()
+		public List<Cita> getCitas(int idMascota)
+		{
+			List<Cita> citas = new List<Cita>();
+
+			try
+			{
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = @"
+        SELECT c.id_cita, c.id_mascota, c.fecha, c.descripcion, 
+               d.idDueño, d.nombre, d.direccion, d.telefono
+        FROM tb_gestion_citas c
+        JOIN tb_mascota m ON c.id_mascota = m.idMascota
+        JOIN tb_dueño d ON m.idDueño = d.idDueño
+        WHERE c.id_mascota = @idMascota";  // Filtro por idMascota
+				Comando.CommandType = CommandType.Text;
+				Comando.Parameters.Clear();
+				Comando.Parameters.AddWithValue("@idMascota", idMascota);  // Agregar parámetro
+
+				var dr = Comando.ExecuteReader();
+
+				while (dr.Read())
+				{
+					Cita cita = new Cita
+					{
+						Id = dr.GetInt32("id_cita"),
+						IdMascota = dr.GetInt32("id_mascota"),
+						Fecha = dr.GetString("fecha"),
+						Descripcion = dr.GetString("descripcion"),
+						Dueño = new Dueño
+						{
+							idDueno = dr.GetInt32("idDueño"),
+							nombre = dr.GetString("nombre"),
+							direccion = dr.GetString("direccion"),
+							telefono = dr.GetString("telefono")
+						}
+					};
+
+					citas.Add(cita);
+				}
+
+				return citas;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al obtener las citas y dueños: " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return citas;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+
+		public List<Dueño> getDueños()
 		{
 			List<Dueño> dues = new List<Dueño>();
 
@@ -1103,6 +1173,7 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 		{
 			try
 			{
+                Comando.Parameters.Clear();
 				Comando.Connection = Conexion.abrirConexion();
 				Comando.CommandText = "INSERT INTO tb_gestion_citas (id_mascota, fecha, descripcion) VALUES (@id_mascota, @fecha, @descripcion)";
 				Comando.CommandType = CommandType.Text;
@@ -1177,6 +1248,324 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 			}
 		}
 
+		//********************CRUD INVENTARIO
+		public bool insertInventario(Inventario inventario)
+		{
+			try
+			{
+				Comando.Parameters.Clear();
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "INSERT INTO tb_inventario (codigo, nombre, descripcion, stock, precio_compra, precio_venta, aviso_min) VALUES (@codigo, @nombre, @descripcion, @stock, @precio_compra, @precio_venta, @aviso_min)";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@codigo", inventario.Codigo);
+				Comando.Parameters.AddWithValue("@nombre", inventario.Nombre);
+				Comando.Parameters.AddWithValue("@descripcion", inventario.Descripcion);
+				Comando.Parameters.AddWithValue("@stock", inventario.Stock);
+				Comando.Parameters.AddWithValue("@precio_compra", inventario.PrecioCompra);
+				Comando.Parameters.AddWithValue("@precio_venta", inventario.PrecioVenta);
+				Comando.Parameters.AddWithValue("@aviso_min", inventario.AvisoMin);
+
+				int rowsAffected = Comando.ExecuteNonQuery();
+				return rowsAffected > 0;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al crear el inventario " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+		public List<Inventario> getInventario()
+		{
+			List<Inventario> inventarios = new List<Inventario>();
+			try
+			{
+				Comando.Parameters.Clear();
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "SELECT * FROM tb_inventario";
+				Comando.CommandType = CommandType.Text;
+
+				using (var reader = Comando.ExecuteReader())
+				{
+					while (reader.Read())
+					{
+						inventarios.Add(new Inventario
+						{
+							Id = (int)reader["id_producto"],
+							Codigo = reader["codigo"].ToString(),
+							Nombre = reader["nombre"].ToString(),
+							Descripcion = reader["descripcion"].ToString(),
+							Stock = (int)reader["stock"],
+							PrecioCompra = (double)reader["precio_compra"],
+							PrecioVenta = (double)reader["precio_venta"],
+							AvisoMin = (int)reader["aviso_min"]
+						});
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al obtener el inventario " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+			return inventarios;
+		}
+
+		public Inventario getInventario(int id)
+		{
+			Inventario inventario = null;
+			try
+			{
+				Comando.Parameters.Clear();
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "SELECT * FROM tb_inventario WHERE id_producto = @id";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@id", id);
+				using (var reader = Comando.ExecuteReader())
+				{
+					if (reader.Read())
+					{
+						inventario = new Inventario
+						{
+							Id = (int)reader["id_producto"],
+							Codigo = reader["codigo"].ToString(),
+							Nombre = reader["nombre"].ToString(),
+							Descripcion = reader["descripcion"].ToString(),
+							Stock = (int)reader["stock"],
+							PrecioCompra = (double)reader["precio_compra"],
+							PrecioVenta = (double)reader["precio_venta"],
+							AvisoMin = (int)reader["aviso_min"]
+						};
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al obtener el inventario " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+			return inventario;
+		}
+
+		public bool updateInventario(Inventario inventario)
+		{
+			try
+			{
+				Comando.Parameters.Clear();
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "UPDATE tb_inventario SET codigo = @codigo, nombre = @nombre, descripcion = @descripcion, stock = @stock, precio_compra = @precio_compra, precio_venta = @precio_venta, aviso_min = @aviso_min WHERE id_producto = @id";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@codigo", inventario.Codigo);
+				Comando.Parameters.AddWithValue("@nombre", inventario.Nombre);
+				Comando.Parameters.AddWithValue("@descripcion", inventario.Descripcion);
+				Comando.Parameters.AddWithValue("@stock", inventario.Stock);
+				Comando.Parameters.AddWithValue("@precio_compra", inventario.PrecioCompra);
+				Comando.Parameters.AddWithValue("@precio_venta", inventario.PrecioVenta);
+				Comando.Parameters.AddWithValue("@aviso_min", inventario.AvisoMin);
+				Comando.Parameters.AddWithValue("@id", inventario.Id);
+
+				int rowsAffected = Comando.ExecuteNonQuery();
+				return rowsAffected > 0;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al actualizar el inventario " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+
+		public bool deleteInventario(int id)
+		{
+			try
+			{
+				Comando.Parameters.Clear();
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "DELETE FROM tb_inventario WHERE id_producto = @id";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@id", id);
+
+				int rowsAffected = Comando.ExecuteNonQuery();
+				return rowsAffected > 0;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al eliminar el inventario " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+
+		//CRUD VENTAS**********************************
+
+		public bool insertVentas(Ventas ventas)
+		{
+			try
+			{
+				Comando.Parameters.Clear();
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "INSERT INTO tb_registro_ventas (id_producto, cantidad, total) VALUES (@id_producto, @cantidad, @total)";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@id_producto", ventas.IdProducto);
+				Comando.Parameters.AddWithValue("@cantidad", ventas.Cantidad);
+				Comando.Parameters.AddWithValue("@total", ventas.Total);
+
+				int rowsAffected = Comando.ExecuteNonQuery();
+				return rowsAffected > 0;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al crear la venta " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+		public List<Ventas> getVentas()
+		{
+			List<Ventas> ventasList = new List<Ventas>();
+			try
+			{
+				Comando.Parameters.Clear();
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "SELECT * FROM tb_registro_ventas";
+				Comando.CommandType = CommandType.Text;
+
+				using (var reader = Comando.ExecuteReader())
+				{
+					while (reader.Read())
+					{
+						ventasList.Add(new Ventas
+						{
+							Id = (int)reader["id_venta"],
+							IdProducto = (int)reader["id_producto"],
+							Cantidad = (int)reader["cantidad"],
+							Total = (double)reader["total"]
+						});
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al obtener las ventas " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+			return ventasList;
+		}
+
+		public Ventas getVentas(int id)
+		{
+			Ventas ventas = null;
+			try
+			{
+				Comando.Parameters.Clear();
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "SELECT * FROM tb_registro_ventas WHERE id_venta = @id";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@id", id);
+				using (var reader = Comando.ExecuteReader())
+				{
+					if (reader.Read())
+					{
+						ventas = new Ventas
+						{
+							Id = (int)reader["id"],
+							IdProducto = (int)reader["id_producto"],
+							Cantidad = (int)reader["cantidad"],
+							Total = (double)reader["total"]
+						};
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al obtener la venta " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+			return ventas;
+		}
+
+		public bool updateVentas(Ventas ventas)
+		{
+			try
+			{
+				Comando.Parameters.Clear();
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "UPDATE tb_registro_ventas SET id_producto = @id_producto, cantidad = @cantidad, total = @total WHERE id_venta = @id";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@id_producto", ventas.IdProducto);
+				Comando.Parameters.AddWithValue("@cantidad", ventas.Cantidad);
+				Comando.Parameters.AddWithValue("@total", ventas.Total);
+				Comando.Parameters.AddWithValue("@id", ventas.Id);
+
+				int rowsAffected = Comando.ExecuteNonQuery();
+				return rowsAffected > 0;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al actualizar la venta " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
+
+		public bool deleteVentas(int id)
+		{
+			try
+			{
+				Comando.Parameters.Clear();
+				Comando.Connection = Conexion.abrirConexion();
+				Comando.CommandText = "DELETE FROM tb_registro_ventas WHERE id_venta = @id";
+				Comando.CommandType = CommandType.Text;
+
+				Comando.Parameters.AddWithValue("@id", id);
+
+				int rowsAffected = Comando.ExecuteNonQuery();
+				return rowsAffected > 0;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error al eliminar la venta " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally
+			{
+				Conexion.cerrarConexion();
+			}
+		}
 
 	}
 }   

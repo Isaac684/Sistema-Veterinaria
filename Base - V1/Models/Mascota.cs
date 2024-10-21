@@ -9,17 +9,17 @@ namespace Base___V1.Models
 {
     public class Mascota
     {
-        private int idMascota;
-        public string nombre {  get; set; }
-        private string especie;
-        private string raza;
-        private int edad;
-        private string sexo;
-        private string color;
-        private string senias;
-        private int idDuenio;
-        private string fechaIngreso;
-		private string imagen;
+        public int idMascota { get; set; }
+		public string nombre {  get; set; }
+        public string especie { get; set; }
+		public string raza { get; set; }
+		public int edad { get; set; }
+		public string sexo { get; set; }
+		public string color { get; set; }
+		public string senias { get; set; }
+		public int idDuenio { get; set; }
+        public string fechaIngreso { get; set; }
+		public string imagen { get; set; }
 
 		public Mascota(int idMascota, string nombre, string especie, string raza, int edad, string sexo, string color, string senias, int idDueño, string fechaIngreso, string imagen)
 		{

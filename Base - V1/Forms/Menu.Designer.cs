@@ -37,6 +37,7 @@
 			pictureBox2 = new PictureBox();
 			PanelNav = new Panel();
 			panel2 = new Panel();
+			btnInv = new Button();
 			Btn6 = new Button();
 			pictureBox1 = new PictureBox();
 			Btn2 = new Button();
@@ -141,12 +142,31 @@
 			// 
 			panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			panel2.BackColor = Color.White;
+			panel2.Controls.Add(btnInv);
 			panel2.Controls.Add(Btn6);
 			panel2.Controls.Add(pictureBox1);
 			panel2.Location = new Point(0, 0);
 			panel2.Name = "panel2";
 			panel2.Size = new Size(1184, 172);
 			panel2.TabIndex = 0;
+			// 
+			// btnInv
+			// 
+			btnInv.BackColor = Color.FromArgb(6, 77, 181);
+			btnInv.FlatAppearance.BorderSize = 0;
+			btnInv.FlatStyle = FlatStyle.Flat;
+			btnInv.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			btnInv.ForeColor = Color.White;
+			btnInv.Image = (Image)resources.GetObject("btnInv.Image");
+			btnInv.ImageAlign = ContentAlignment.TopRight;
+			btnInv.Location = new Point(12, 12);
+			btnInv.Name = "btnInv";
+			btnInv.Size = new Size(200, 49);
+			btnInv.TabIndex = 10;
+			btnInv.Text = "Inventario";
+			btnInv.TextImageRelation = TextImageRelation.TextBeforeImage;
+			btnInv.UseVisualStyleBackColor = false;
+			btnInv.Click += button1_Click_1;
 			// 
 			// Btn6
 			// 
@@ -266,5 +286,6 @@
         private Button Btn1;
         private Label IblTittle;
 		public Button btnCita;
+		public Button btnInv;
 	}
 }

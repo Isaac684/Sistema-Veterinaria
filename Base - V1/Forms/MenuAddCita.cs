@@ -24,6 +24,7 @@ namespace Base___V1
 		private QuerysSQL data = new QuerysSQL();
 		private List<Cita> citas = new List<Cita>();
 		private Dueño dueño;
+		private Mascota mascota;
 
 		//camara
 		private bool dispose;
@@ -31,21 +32,74 @@ namespace Base___V1
 		{
 			InitializeComponent();
 			citas = data.getCitas();
+			fillTable();
+			dateCita.Value = DateTime.Now;
+
+			ContextMenuStrip popupMenu = new ContextMenuStrip();
+			ToolStripMenuItem menuItem = new ToolStripMenuItem("Eliminar");
+			popupMenu.Items.Add(menuItem);
+
+			tblCitas.ContextMenuStrip = popupMenu;
+			tblCitas.MouseDown += (sender, e) =>
+			{
+				if (e.Button == MouseButtons.Right)
+				{
+					var hitTestInfo = tblCitas.HitTest(e.X, e.Y);
+					{
+						tblCitas.ClearSelection();
+						tblCitas.Rows[hitTestInfo.RowIndex].Selected = true;
+						int idSeleccionado = Convert.ToInt32(tblCitas.Rows[hitTestInfo.RowIndex].Cells["id"].Value);
+						menuItem.Click += (s, args) =>
+						{
+							EjecutarAccionPorId(idSeleccionado);
+						};
+					}
+				}
+			};
+
+
+		}
+		private void limpiarAnteriores()
+		{
+			DateTime fechaActual = DateTime.Today;
+			foreach (var item in citas)
+			{
+
+				DateTime fechaSeleccionada = DateTime.Parse(item.Fecha);
+
+				if (fechaSeleccionada < fechaActual)
+				{
+					data.deleteCita(item.Id);
+				}
+			}
+		}
+			// Función que será ejecutada con el ID seleccionado
+		void EjecutarAccionPorId(int id)
+		{
+			data.deleteCita(id);
+			MessageBox.Show("Se elimino la cita" + id);
+			citas = data.getCitas();
 		}
 		public void fillTable()
 		{
+			citas = data.getCitas();
 			tblCitas.Columns.Clear();
 			tblCitas.Rows.Clear();
-
+			tblCitas.Columns.Add("id", "Cita Nº");
 			tblCitas.Columns.Add("dueño", "Dueño");
 			tblCitas.Columns.Add("telefono", "Telefono");
 			tblCitas.Columns.Add("fecha", "Fecha");
 			foreach (var cita in citas)
 			{
-				tblCitas.Rows.Add(cita.Dueño.getNombre(), cita.Dueño.getTelefono, cita.Fecha);
+				
+				if (cita.Fecha.Equals(dateCita.Value.ToString("dd-MM-yyyy")))
+				{
+					tblCitas.Rows.Add(cita.Id,cita.Dueño.getNombre(), cita.Dueño.getTelefono(), cita.Fecha);
+				}
 			}
 		}
 
+		
 
 		private void btnAgregar_Click(object sender, EventArgs e)
 		{
@@ -75,14 +129,48 @@ namespace Base___V1
 				if (searchForm.ShowDialog() == DialogResult.OK)
 				{
 					this.dueño = searchForm.dueño;
-					txtName.Text = this.dueño.getNombre();
+					this.mascota = searchForm.mascota;
+					txtName.Text = this.mascota.getNombre();
 				}
 			}
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
+			DateTime fechaSeleccionada = timePicker.Value.Date;
+			DateTime fechaActual = DateTime.Today;
+
+			if (fechaSeleccionada < fechaActual)
+			{
+				MessageBox.Show("La fecha seleccionada es pasada.");
+				return;
+			}
 			Cita cita = new Cita();
+			cita.IdMascota = mascota.idMascota;
+			cita.Fecha = timePicker.Value.ToString("dd-MM-yyyy");
+			cita.Descripcion = txtDescription.Text;
+
+			data.insertCita(cita);
+			MessageBox.Show("Cita agregada correctamente");
+
+			txtName.Text = "";
+			txtDescription.Text = "";
+
+		}
+
+		private void label2_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void btnBuscar_Click(object sender, EventArgs e)
+		{
+			fillTable();
 		}
 	}
 }
