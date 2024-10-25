@@ -22,6 +22,7 @@ namespace Base___V1
 		private Mascota mascota;
 		private Dueño dueño;
 		private QuerysSQL data;
+		private AtributoDisenio disenio = new AtributoDisenio();
 
 		public ExpInfo(string idMascota, string idDueño)
 		{
@@ -32,6 +33,9 @@ namespace Base___V1
 			enableTxt(false);
 			data = new QuerysSQL();
 			loadInformacion();
+
+			disenio.RedondearBordes(pbFoto);
+			disenio.RedondearBordes(pb2);
 		}
 
 

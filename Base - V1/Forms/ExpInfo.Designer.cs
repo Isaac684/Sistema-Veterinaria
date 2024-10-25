@@ -108,11 +108,11 @@
 			label12.BackColor = Color.Transparent;
 			label12.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			label12.ForeColor = Color.Black;
-			label12.Location = new Point(517, 598);
+			label12.Location = new Point(391, 598);
 			label12.Name = "label12";
-			label12.Size = new Size(98, 23);
+			label12.Size = new Size(100, 23);
 			label12.TabIndex = 72;
-			label12.Text = "Resultado";
+			label12.Text = "Fotografia";
 			// 
 			// btnCapturar
 			// 
@@ -122,7 +122,7 @@
 			btnCapturar.FlatStyle = FlatStyle.Flat;
 			btnCapturar.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			btnCapturar.ForeColor = Color.White;
-			btnCapturar.Location = new Point(185, 860);
+			btnCapturar.Location = new Point(391, 857);
 			btnCapturar.Name = "btnCapturar";
 			btnCapturar.Size = new Size(117, 44);
 			btnCapturar.TabIndex = 67;
@@ -135,7 +135,7 @@
 			pb2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			pb2.Location = new Point(257, 635);
 			pb2.Name = "pb2";
-			pb2.Size = new Size(358, 200);
+			pb2.Size = new Size(386, 200);
 			pb2.SizeMode = PictureBoxSizeMode.StretchImage;
 			pb2.TabIndex = 71;
 			pb2.TabStop = false;
@@ -157,7 +157,7 @@
 			cbEdicion.AutoSize = true;
 			cbEdicion.BackColor = Color.Transparent;
 			cbEdicion.ForeColor = Color.Black;
-			cbEdicion.Location = new Point(696, 597);
+			cbEdicion.Location = new Point(724, 597);
 			cbEdicion.Name = "cbEdicion";
 			cbEdicion.Size = new Size(142, 24);
 			cbEdicion.TabIndex = 65;
@@ -200,7 +200,7 @@
 			label13.BackColor = Color.Transparent;
 			label13.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			label13.ForeColor = Color.Black;
-			label13.Location = new Point(590, 512);
+			label13.Location = new Point(618, 512);
 			label13.Name = "label13";
 			label13.Size = new Size(90, 23);
 			label13.TabIndex = 60;
@@ -210,7 +210,7 @@
 			// 
 			txtTelefono.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			txtTelefono.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			txtTelefono.Location = new Point(564, 509);
+			txtTelefono.Location = new Point(592, 509);
 			txtTelefono.Name = "txtTelefono";
 			txtTelefono.Size = new Size(274, 30);
 			txtTelefono.TabIndex = 59;
@@ -234,7 +234,7 @@
 			txtCorreo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			txtCorreo.Location = new Point(149, 509);
 			txtCorreo.Name = "txtCorreo";
-			txtCorreo.Size = new Size(409, 30);
+			txtCorreo.Size = new Size(437, 30);
 			txtCorreo.TabIndex = 57;
 			txtCorreo.TextChanged += txtCorreo_TextChanged;
 			// 
@@ -258,7 +258,7 @@
 			txtDireccion.Location = new Point(149, 419);
 			txtDireccion.Multiline = true;
 			txtDireccion.Name = "txtDireccion";
-			txtDireccion.Size = new Size(689, 49);
+			txtDireccion.Size = new Size(717, 49);
 			txtDireccion.TabIndex = 55;
 			// 
 			// label10
@@ -280,7 +280,7 @@
 			txtNombrePro.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			txtNombrePro.Location = new Point(149, 349);
 			txtNombrePro.Name = "txtNombrePro";
-			txtNombrePro.Size = new Size(689, 30);
+			txtNombrePro.Size = new Size(717, 30);
 			txtNombrePro.TabIndex = 53;
 			// 
 			// label8
@@ -415,7 +415,7 @@
 			lblDatosPropietario.ForeColor = Color.Black;
 			lblDatosPropietario.Location = new Point(35, 280);
 			lblDatosPropietario.Name = "lblDatosPropietario";
-			lblDatosPropietario.Size = new Size(541, 43);
+			lblDatosPropietario.Size = new Size(569, 43);
 			lblDatosPropietario.TabIndex = 37;
 			lblDatosPropietario.Text = "Datos del propietario";
 			// 
