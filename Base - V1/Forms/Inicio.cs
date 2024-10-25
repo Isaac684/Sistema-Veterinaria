@@ -57,7 +57,7 @@ namespace Base___V1
 			{
 				Console.WriteLine(ex.ToString());
 			}
-			if (data.getClave(key))
+			if (data.getClave(key,false))
 			{
 				Menu menu_vrb = new Menu();
 				menu_vrb.Show();

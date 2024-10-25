@@ -56,7 +56,7 @@ namespace Base___V1
 					}
 				}
 			};
-
+			button3.Enabled = false;
 
 		}
 		private void limpiarAnteriores()
@@ -73,7 +73,7 @@ namespace Base___V1
 				}
 			}
 		}
-			// Función que será ejecutada con el ID seleccionado
+		// Función que será ejecutada con el ID seleccionado
 		void EjecutarAccionPorId(int id)
 		{
 			data.deleteCita(id);
@@ -91,15 +91,15 @@ namespace Base___V1
 			tblCitas.Columns.Add("fecha", "Fecha");
 			foreach (var cita in citas)
 			{
-				
+
 				if (cita.Fecha.Equals(dateCita.Value.ToString("dd-MM-yyyy")))
 				{
-					tblCitas.Rows.Add(cita.Id,cita.Dueño.getNombre(), cita.Dueño.getTelefono(), cita.Fecha);
+					tblCitas.Rows.Add(cita.Id, cita.Dueño.getNombre(), cita.Dueño.getTelefono(), cita.Fecha);
 				}
 			}
 		}
 
-		
+
 
 		private void btnAgregar_Click(object sender, EventArgs e)
 		{
@@ -131,6 +131,8 @@ namespace Base___V1
 					this.dueño = searchForm.dueño;
 					this.mascota = searchForm.mascota;
 					txtName.Text = this.mascota.getNombre();
+					button3.Enabled = true;
+					MessageBox.Show("Mascota " + this.mascota.getNombre() + " seleccionada. \n Para mas informacion presione info.");
 				}
 			}
 		}
@@ -145,6 +147,11 @@ namespace Base___V1
 				MessageBox.Show("La fecha seleccionada es pasada.");
 				return;
 			}
+			if(this.mascota == null)
+			{
+				MessageBox.Show("Seleccione una mascota");
+				return;
+			}
 			Cita cita = new Cita();
 			cita.IdMascota = mascota.idMascota;
 			cita.Fecha = timePicker.Value.ToString("dd-MM-yyyy");
@@ -155,6 +162,9 @@ namespace Base___V1
 
 			txtName.Text = "";
 			txtDescription.Text = "";
+			this.mascota = null;
+			this.dueño = null;
+			button3.Enabled = false;
 
 		}
 
@@ -171,6 +181,25 @@ namespace Base___V1
 		private void btnBuscar_Click(object sender, EventArgs e)
 		{
 			fillTable();
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			string mensaje =
+			$"Dueño:\n" +
+			$"Nombre: {dueño.nombre}\n" +
+			$"Dirección: {dueño.direccion}\n" +
+			$"Correo: {dueño.correo}\n" +
+			$"Teléfono: {dueño.telefono}\n\n" +
+			$"Mascota:\n" +
+			$"Nombre: {mascota.nombre}\n" +
+			$"Especie: {mascota.especie}\n" +
+			$"Sexo: {mascota.sexo}\n" +
+			$"Color: {mascota.color}\n" +
+			$"Fecha de Ingreso: {mascota.fechaIngreso}";
+
+			MessageBox.Show(mensaje, "Información del Dueño y la Mascota", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 		}
 	}
 }

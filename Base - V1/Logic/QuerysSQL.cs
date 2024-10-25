@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Base___V1.Models;
 using System.Data;
+using GSF.Console;
 
 namespace Base___V1.Logic
 {
@@ -971,11 +972,10 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
                 }
             }
 
-		public bool getClave(String key)
+		public bool getClave(String key,bool type)
 		{
-			int id = 1;
 			Comando.Connection = Conexion.abrirConexion();
-			Comando.CommandText = $"SELECT * FROM tb_key WHERE id = {id}";
+			Comando.CommandText = $"SELECT * FROM tb_key WHERE type = {type}";
 			Comando.CommandType = CommandType.Text;
 			MySqlDataReader dr = Comando.ExecuteReader();
 			string clave = "";
@@ -1002,7 +1002,7 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 		}
 		public bool updateClave(string new_key, string old_key)
 		{
-			if (getClave(old_key))
+			if (getClave(old_key,false))
 			{
 				try
 				{
@@ -1431,6 +1431,9 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 				Comando.Parameters.AddWithValue("@total", ventas.Total);
 
 				int rowsAffected = Comando.ExecuteNonQuery();
+                Inventario inv = this.getInventario(ventas.IdProducto);
+                inv.Stock = inv.Stock - ventas.Cantidad;
+                this.updateInventario(inv);
 				return rowsAffected > 0;
 			}
 			catch (Exception e)
@@ -1495,7 +1498,7 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 					{
 						ventas = new Ventas
 						{
-							Id = (int)reader["id"],
+							Id = (int)reader["id_venta"],
 							IdProducto = (int)reader["id_producto"],
 							Cantidad = (int)reader["cantidad"],
 							Total = (double)reader["total"]
@@ -1518,7 +1521,11 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 		{
 			try
 			{
-				Comando.Parameters.Clear();
+                Ventas lastVenta = this.getVentas(ventas.Id);
+				Inventario inventario = this.getInventario(lastVenta.IdProducto);
+                inventario.Stock = inventario.Stock + (lastVenta.Cantidad - ventas.Cantidad);
+                this.updateInventario(inventario);
+                Comando.Parameters.Clear();
 				Comando.Connection = Conexion.abrirConexion();
 				Comando.CommandText = "UPDATE tb_registro_ventas SET id_producto = @id_producto, cantidad = @cantidad, total = @total WHERE id_venta = @id";
 				Comando.CommandType = CommandType.Text;
@@ -1529,6 +1536,9 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 				Comando.Parameters.AddWithValue("@id", ventas.Id);
 
 				int rowsAffected = Comando.ExecuteNonQuery();
+
+
+
 				return rowsAffected > 0;
 			}
 			catch (Exception e)
@@ -1546,6 +1556,10 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 		{
 			try
 			{
+                Ventas venta = this.getVentas(id);
+				Inventario inv = this.getInventario(venta.IdProducto);
+				inv.Stock = inv.Stock + venta.Cantidad;
+				this.updateInventario(inv);
 				Comando.Parameters.Clear();
 				Comando.Connection = Conexion.abrirConexion();
 				Comando.CommandText = "DELETE FROM tb_registro_ventas WHERE id_venta = @id";
@@ -1554,6 +1568,7 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 				Comando.Parameters.AddWithValue("@id", id);
 
 				int rowsAffected = Comando.ExecuteNonQuery();
+
 				return rowsAffected > 0;
 			}
 			catch (Exception e)

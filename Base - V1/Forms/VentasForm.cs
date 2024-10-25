@@ -47,15 +47,14 @@ namespace Base___V1.Forms
 						};
 						menuItem2.Click += (s, args) =>
 						{
-							/*
-							using (ActualizarProducto searchForm = new ActualizarProducto(idSeleccionado))
+							using (ActualizarVenta searchForm = new ActualizarVenta(idSeleccionado))
 							{
 								if (searchForm.ShowDialog() == DialogResult.OK)
 								{
 									MessageBox.Show("Actualizado correctamente");
 									fillTable();
 								}
-							}*/
+							}
 						};
 					}
 				}

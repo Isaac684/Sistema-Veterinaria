@@ -19,6 +19,9 @@
     <Compile Update="Forms\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\InternalViews\ActualizarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\InternalViews\AgregarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -29,6 +32,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\InternalViews\buscarInventarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\InternalViews\KeyConfirm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\InventarioForm.cs">

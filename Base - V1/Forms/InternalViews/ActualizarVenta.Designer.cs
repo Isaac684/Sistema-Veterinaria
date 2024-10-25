@@ -1,6 +1,6 @@
 ﻿namespace Base___V1.Forms.InternalViews
 {
-	partial class AgregarVenta
+	partial class ActualizarVenta
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -42,7 +42,6 @@
 			txt4 = new TextBox();
 			label3 = new Label();
 			tableLayoutPanel5 = new TableLayoutPanel();
-			button3 = new Button();
 			txt1 = new TextBox();
 			tableLayoutPanel2.SuspendLayout();
 			tableLayoutPanel1.SuspendLayout();
@@ -62,7 +61,7 @@
 			label1.Name = "label1";
 			label1.Size = new Size(466, 61);
 			label1.TabIndex = 11;
-			label1.Text = "Registrar venta";
+			label1.Text = "Actualizar venta";
 			label1.TextAlign = ContentAlignment.MiddleLeft;
 			// 
 			// button2
@@ -232,10 +231,8 @@
 			// 
 			// tableLayoutPanel5
 			// 
-			tableLayoutPanel5.ColumnCount = 2;
+			tableLayoutPanel5.ColumnCount = 1;
 			tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 72.312706F));
-			tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.6872959F));
-			tableLayoutPanel5.Controls.Add(button3, 0, 0);
 			tableLayoutPanel5.Controls.Add(txt1, 0, 0);
 			tableLayoutPanel5.Location = new Point(156, 3);
 			tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -244,37 +241,23 @@
 			tableLayoutPanel5.Size = new Size(307, 91);
 			tableLayoutPanel5.TabIndex = 28;
 			// 
-			// button3
-			// 
-			button3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-			button3.BackColor = Color.FromArgb(31, 38, 67);
-			button3.FlatStyle = FlatStyle.Flat;
-			button3.ForeColor = SystemColors.Control;
-			button3.Location = new Point(225, 28);
-			button3.Name = "button3";
-			button3.Size = new Size(79, 35);
-			button3.TabIndex = 25;
-			button3.Text = "Buscar";
-			button3.UseVisualStyleBackColor = false;
-			button3.Click += button3_Click;
-			// 
 			// txt1
 			// 
 			txt1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
 			txt1.Enabled = false;
 			txt1.Location = new Point(3, 32);
 			txt1.Name = "txt1";
-			txt1.Size = new Size(216, 27);
+			txt1.Size = new Size(301, 27);
 			txt1.TabIndex = 24;
 			// 
-			// AgregarVenta
+			// ActualizarVenta
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(472, 575);
 			Controls.Add(tableLayoutPanel1);
 			FormBorderStyle = FormBorderStyle.None;
-			Name = "AgregarVenta";
+			Name = "ActualizarVenta";
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Agregar_producto";
 			tableLayoutPanel2.ResumeLayout(false);
@@ -302,9 +285,8 @@
 		private TextBox txt6;
 		private TextBox txt4;
 		private Label label3;
-		private TableLayoutPanel tableLayoutPanel5;
-		private Button button3;
-		private TextBox txt1;
 		private NumericUpDown txt2;
+		private TableLayoutPanel tableLayoutPanel5;
+		private TextBox txt1;
 	}
 }

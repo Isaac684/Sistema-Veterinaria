@@ -12,14 +12,21 @@ using System.Windows.Forms;
 
 namespace Base___V1.Forms.InternalViews
 {
-	public partial class AgregarVenta : Form
+	public partial class ActualizarVenta : Form
 	{
 		QuerysSQL data = new QuerysSQL();
 		Inventario inventario;
-		public AgregarVenta()
+		Ventas venta;
+		public ActualizarVenta(int id)
 		{
 			InitializeComponent();
 			button1.Enabled = false;
+			this.venta = data.getVentas(id);
+			this.inventario = data.getInventario(venta.IdProducto);
+			txt1.Text = venta.IdProducto.ToString();
+			txt2.Value = venta.Cantidad;
+			txt6.Text = this.inventario.PrecioVenta.ToString();
+			calcular();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -29,16 +36,28 @@ namespace Base___V1.Forms.InternalViews
 				MessageBox.Show("Rellene todos los campos");
 				return;
 			}
-			if(this.inventario == null)
+			bool flag = false;
+			while (!flag)
 			{
-				MessageBox.Show("Seleccione un producto de inventario");
+				using (KeyConfirm key = new KeyConfirm())
+				{
+					if (key.ShowDialog() == DialogResult.No)
+					{
+						MessageBox.Show("Clave incorrecta");
+					}else if(key.ShowDialog() == DialogResult.Cancel)
+					{
+						return;
+					}
+					else
+					{
+						flag = true;
+					}
+				}
 			}
-			Ventas v = new Ventas();
-			v.IdProducto = this.inventario.Id;
-			v.Cantidad = Convert.ToInt32(txt2.Value);
-			v.Total = Convert.ToDouble(txt6.Text) * v.Cantidad;
+			this.venta.Cantidad = Convert.ToInt32(txt2.Value);
+			this.venta.Total = Convert.ToDouble(txt6.Text) * this.venta.Cantidad;
 
-			data.insertVentas(v);
+			data.updateVentas(this.venta);
 			DialogResult = DialogResult.OK;
 			Close();
 
@@ -72,11 +91,11 @@ namespace Base___V1.Forms.InternalViews
 			{
 				if (inventario != null) { 
 					int num1 = Convert.ToInt32(txt2.Value);
-					if(num1 > inventario.Stock)
+					if(num1 > (inventario.Stock+venta.Cantidad))
 					{
 						MessageBox.Show("Producto fuera de stock");
-						txt2.Value = inventario.Stock;
-						num1 = inventario.Stock;
+						txt2.Value = inventario.Stock + venta.Cantidad;
+						num1 = inventario.Stock + venta.Cantidad;
 					}
 					txt2.Value = num1;
 					double num2 = Convert.ToDouble(txt6.Text);

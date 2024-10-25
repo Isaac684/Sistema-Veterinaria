@@ -174,5 +174,22 @@ namespace Base___V1
 			pantalla3_vrb.Show();
 
 		}
+
+		private void Menu_Load_1(object sender, EventArgs e)
+		{
+
+		}
+		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Application.Exit();
+			Environment.Exit(0);
+		}
+		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Application.Exit();
+			Environment.Exit(0);
+		}
+
+
 	}
 }

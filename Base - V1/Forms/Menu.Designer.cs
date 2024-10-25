@@ -37,13 +37,13 @@
 			pictureBox2 = new PictureBox();
 			PanelNav = new Panel();
 			panel2 = new Panel();
+			button1 = new Button();
 			btnInv = new Button();
 			Btn6 = new Button();
 			pictureBox1 = new PictureBox();
 			Btn2 = new Button();
 			Btn1 = new Button();
 			IblTittle = new Label();
-			button1 = new Button();
 			panel1.SuspendLayout();
 			panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -152,6 +152,24 @@
 			panel2.Size = new Size(1184, 172);
 			panel2.TabIndex = 0;
 			// 
+			// button1
+			// 
+			button1.BackColor = Color.FromArgb(6, 77, 181);
+			button1.FlatAppearance.BorderSize = 0;
+			button1.FlatStyle = FlatStyle.Flat;
+			button1.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			button1.ForeColor = Color.White;
+			button1.Image = (Image)resources.GetObject("button1.Image");
+			button1.ImageAlign = ContentAlignment.TopRight;
+			button1.Location = new Point(12, 67);
+			button1.Name = "button1";
+			button1.Size = new Size(200, 49);
+			button1.TabIndex = 11;
+			button1.Text = "Ventas";
+			button1.TextImageRelation = TextImageRelation.TextBeforeImage;
+			button1.UseVisualStyleBackColor = false;
+			button1.Click += button1_Click_2;
+			// 
 			// btnInv
 			// 
 			btnInv.BackColor = Color.FromArgb(6, 77, 181);
@@ -251,24 +269,6 @@
 			IblTittle.Text = "Administración";
 			IblTittle.TextAlign = ContentAlignment.MiddleCenter;
 			// 
-			// button1
-			// 
-			button1.BackColor = Color.FromArgb(6, 77, 181);
-			button1.FlatAppearance.BorderSize = 0;
-			button1.FlatStyle = FlatStyle.Flat;
-			button1.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			button1.ForeColor = Color.White;
-			button1.Image = (Image)resources.GetObject("button1.Image");
-			button1.ImageAlign = ContentAlignment.TopRight;
-			button1.Location = new Point(12, 67);
-			button1.Name = "button1";
-			button1.Size = new Size(200, 49);
-			button1.TabIndex = 11;
-			button1.Text = "Ventas";
-			button1.TextImageRelation = TextImageRelation.TextBeforeImage;
-			button1.UseVisualStyleBackColor = false;
-			button1.Click += button1_Click_2;
-			// 
 			// Menu
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
@@ -283,6 +283,9 @@
 			Name = "Menu";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Menu";
+			FormClosing += Form1_FormClosing;
+			FormClosed += Form1_FormClosed;
+			Load += Menu_Load_1;
 			panel1.ResumeLayout(false);
 			panel4.ResumeLayout(false);
 			panel4.PerformLayout();

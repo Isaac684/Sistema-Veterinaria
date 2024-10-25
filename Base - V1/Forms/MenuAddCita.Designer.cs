@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAddCita));
 			panel1 = new Panel();
 			tableLayoutPanel3 = new TableLayoutPanel();
 			tableLayoutPanel4 = new TableLayoutPanel();
@@ -42,17 +43,20 @@
 			tableLayoutPanel1 = new TableLayoutPanel();
 			button2 = new Button();
 			label2 = new Label();
-			txtName = new TextBox();
 			timePicker = new DateTimePicker();
 			label6 = new Label();
 			label1 = new Label();
 			btnAgregar = new Button();
+			tableLayoutPanel5 = new TableLayoutPanel();
+			txtName = new TextBox();
+			button3 = new Button();
 			panel1.SuspendLayout();
 			tableLayoutPanel3.SuspendLayout();
 			tableLayoutPanel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)tblCitas).BeginInit();
 			tableLayoutPanel2.SuspendLayout();
 			tableLayoutPanel1.SuspendLayout();
+			tableLayoutPanel5.SuspendLayout();
 			SuspendLayout();
 			// 
 			// panel1
@@ -202,9 +206,9 @@
 			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 257F));
 			tableLayoutPanel1.Controls.Add(button2, 2, 0);
 			tableLayoutPanel1.Controls.Add(label2, 0, 0);
-			tableLayoutPanel1.Controls.Add(txtName, 1, 0);
 			tableLayoutPanel1.Controls.Add(timePicker, 4, 0);
 			tableLayoutPanel1.Controls.Add(label6, 3, 0);
+			tableLayoutPanel1.Controls.Add(tableLayoutPanel5, 1, 0);
 			tableLayoutPanel1.Location = new Point(3, 82);
 			tableLayoutPanel1.Name = "tableLayoutPanel1";
 			tableLayoutPanel1.RowCount = 1;
@@ -236,15 +240,6 @@
 			label2.TabIndex = 11;
 			label2.Text = "Nombre de la mascota:";
 			label2.Click += label2_Click;
-			// 
-			// txtName
-			// 
-			txtName.Anchor = AnchorStyles.Left;
-			txtName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			txtName.Location = new Point(155, 15);
-			txtName.Name = "txtName";
-			txtName.Size = new Size(202, 30);
-			txtName.TabIndex = 12;
 			// 
 			// timePicker
 			// 
@@ -294,6 +289,41 @@
 			btnAgregar.UseVisualStyleBackColor = false;
 			btnAgregar.Click += btnAgregar_Click;
 			// 
+			// tableLayoutPanel5
+			// 
+			tableLayoutPanel5.ColumnCount = 2;
+			tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 78.73303F));
+			tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 21.2669678F));
+			tableLayoutPanel5.Controls.Add(button3, 0, 0);
+			tableLayoutPanel5.Controls.Add(txtName, 0, 0);
+			tableLayoutPanel5.Location = new Point(155, 3);
+			tableLayoutPanel5.Name = "tableLayoutPanel5";
+			tableLayoutPanel5.RowCount = 1;
+			tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+			tableLayoutPanel5.Size = new Size(221, 54);
+			tableLayoutPanel5.TabIndex = 27;
+			// 
+			// txtName
+			// 
+			txtName.Anchor = AnchorStyles.Left;
+			txtName.Enabled = false;
+			txtName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			txtName.Location = new Point(3, 12);
+			txtName.Name = "txtName";
+			txtName.Size = new Size(168, 30);
+			txtName.TabIndex = 13;
+			// 
+			// button3
+			// 
+			button3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+			button3.Image = (Image)resources.GetObject("button3.Image");
+			button3.Location = new Point(177, 10);
+			button3.Name = "button3";
+			button3.Size = new Size(41, 34);
+			button3.TabIndex = 27;
+			button3.UseVisualStyleBackColor = true;
+			button3.Click += button3_Click;
+			// 
 			// MenuAddCita
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
@@ -314,6 +344,8 @@
 			tableLayoutPanel2.PerformLayout();
 			tableLayoutPanel1.ResumeLayout(false);
 			tableLayoutPanel1.PerformLayout();
+			tableLayoutPanel5.ResumeLayout(false);
+			tableLayoutPanel5.PerformLayout();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -324,7 +356,6 @@
 		private Label label2;
 		private Label label1;
 		private Label label6;
-		private TextBox txtName;
 		private Button btnAgregar;
 		private Label IblTittle;
 		private DateTimePicker timePicker;
@@ -339,5 +370,8 @@
 		private TableLayoutPanel tableLayoutPanel4;
 		private Button btnBuscar;
 		private DateTimePicker dateCita;
+		private TableLayoutPanel tableLayoutPanel5;
+		private Button button3;
+		private TextBox txtName;
 	}
 }
