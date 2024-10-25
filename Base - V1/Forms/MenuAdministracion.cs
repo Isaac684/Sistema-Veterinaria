@@ -41,7 +41,6 @@ namespace Base___V1
                     menu.PnlFormLoader.Controls.Clear();
                     menu.textBox1.TextChanged -= txtBusquedaPaciente;
                     menu.textBox1.Text = "";
-                    menu.SetPlaceholder(menu.textBox1, "Busca algo...");
                     ExpedienteVistaPrincipal pantalla2_vrb = new ExpedienteVistaPrincipal(idMascota, idDueño, menu) { Dock = DockStyle.Fill, TopLevel = false};
                     pantalla2_vrb.FormBorderStyle = FormBorderStyle.None;
                     menu.PnlFormLoader.Controls.Add(pantalla2_vrb);

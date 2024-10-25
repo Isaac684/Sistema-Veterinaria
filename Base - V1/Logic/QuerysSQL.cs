@@ -975,7 +975,7 @@ INNER JOIN tb_mascota m ON d.idDueño = m.idDueño; ";
 		public bool getClave(String key,bool type)
 		{
 			Comando.Connection = Conexion.abrirConexion();
-			Comando.CommandText = $"SELECT * FROM tb_key WHERE type = {type}";
+			Comando.CommandText = $"SELECT * FROM tb_key WHERE clave = {key}";
 			Comando.CommandType = CommandType.Text;
 			MySqlDataReader dr = Comando.ExecuteReader();
 			string clave = "";
