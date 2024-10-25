@@ -50,7 +50,7 @@
             // 
             tblPacientes.AllowUserToOrderColumns = true;
             tblPacientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            tblPacientes.BackgroundColor = Color.FromArgb(158, 161, 176);
+            tblPacientes.BackgroundColor = Color.White;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -61,7 +61,7 @@
             tblPacientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tblPacientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tblPacientes.Dock = DockStyle.Fill;
-            tblPacientes.GridColor = Color.FromArgb(158, 161, 176);
+            tblPacientes.GridColor = Color.Black;
             tblPacientes.Location = new Point(0, 0);
             tblPacientes.Margin = new Padding(3, 2, 3, 2);
             tblPacientes.Name = "tblPacientes";
@@ -74,7 +74,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(46, 51, 73);
+            BackColor = Color.White;
             ClientSize = new Size(772, 445);
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.None;
