@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using Base___V1.Forms.InternalViews;
 using Base___V1.Logic;
 using Base___V1.Models;
 
@@ -21,11 +22,6 @@ namespace Base___V1
 		private Mascota mascota;
 		private Dueño dueño;
 		private QuerysSQL data;
-		//camara
-		private bool dispose;
-		private FilterInfoCollection collection;
-		private VideoCaptureDevice webCam;
-		private readonly object imageLock = new object();
 
 		public ExpInfo(string idMascota, string idDueño)
 		{
@@ -36,26 +32,6 @@ namespace Base___V1
 			enableTxt(false);
 			data = new QuerysSQL();
 			loadInformacion();
-			loadDevices();
-			startWebCam();
-
-		}
-		public void loadDevices()
-		{
-			collection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-			if (collection.Count > 0)
-			{
-				dispose = true;
-				foreach (FilterInfo item in collection)
-				{
-					cbxCamara.Items.Add(item.Name.ToString());
-				}
-				cbxCamara.Text = collection[0].Name.ToString();
-			}
-			else
-			{
-				dispose = false;
-			}
 		}
 
 
@@ -117,72 +93,8 @@ namespace Base___V1
 
 			}
 		}
-		private void watching(object sender, NewFrameEventArgs e)
-		{
-			lock (imageLock) // Bloquea el acceso simultáneo a la camara
-			{
-				if (e.Frame == null) return;
-
-				Bitmap newImage = null;
-				try
-				{
-					newImage = (Bitmap)e.Frame.Clone();
-				}
-				catch (Exception ex)
-				{
-					MessageBox.Show($"Error al capturar la imagen: {ex.Message}");
-					return;
-				}
-
-				if (pb1.Image != null)
-				{
-					pb1.Image.Dispose();
-				}
-
-				pb1.Image = newImage;
-				pb1.SizeMode = PictureBoxSizeMode.StretchImage;
-			}
-		}
-
-		private void startWebCam()
-		{
-			if (cbxCamara.SelectedIndex < 0 || collection == null || collection.Count == 0)
-			{
-				MessageBox.Show("No hay cámaras disponibles o seleccionadas.");
-				return;
-			}
-
-			closeWebCam();
-			int i = cbxCamara.SelectedIndex;
-			string name = collection[i].MonikerString;
-
-			webCam = new VideoCaptureDevice(name);
-			webCam.NewFrame += new NewFrameEventHandler(watching);
-			webCam.Start();
-		}
-
-
 		private void ExpInfo_FormClosed(object sender, FormClosedEventArgs e)
 		{
-			closeWebCam();
-		}
-		private void closeWebCam()
-		{
-			if (webCam != null)
-			{
-				if (webCam.IsRunning)
-				{
-					webCam.SignalToStop();
-					webCam.WaitForStop(); 
-				}
-				webCam = null;
-			}
-
-			if (pb1.Image != null)
-			{
-				pb1.Image.Dispose(); 
-				pb1.Image = null;
-			}
 		}
 
 		private void loadInformacion()
@@ -217,16 +129,16 @@ namespace Base___V1
 
 		private void cbxCamara_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			startWebCam();
 		}
 
 		private void btnCapturar_Click(object sender, EventArgs e)
 		{
-			lock (imageLock)
+
+			using (Camara camara = new Camara())
 			{
-				if (pb1.Image != null)
+				if (camara.ShowDialog(Owner) == DialogResult.OK)
 				{
-					pb2.Image = (Image)pb1.Image.Clone();
+					pb2.Image = camara.image;
 					pb2.SizeMode = PictureBoxSizeMode.StretchImage;
 				}
 			}
