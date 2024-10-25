@@ -73,9 +73,9 @@ namespace Base___V1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hogar {
+        internal static System.Drawing.Bitmap _1_ai_brush_removebg_u1gdgktf {
             get {
-                object obj = ResourceManager.GetObject("hogar", resourceCulture);
+                object obj = ResourceManager.GetObject("1-ai-brush-removebg-u1gdgktf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,7 +83,6 @@ namespace Base___V1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-
         internal static System.Drawing.Bitmap dog_cat {
             get {
                 object obj = ResourceManager.GetObject("dog-cat", resourceCulture);
@@ -94,10 +93,29 @@ namespace Base___V1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-
+        internal static System.Drawing.Bitmap hogar {
+            get {
+                object obj = ResourceManager.GetObject("hogar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hogar1 {
             get {
                 object obj = ResourceManager.GetObject("hogar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_Recortado {
+            get {
+                object obj = ResourceManager.GetObject("Logo Recortado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
