@@ -230,5 +230,15 @@ namespace Base___V1
         {
 
         }
-    }
+		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Application.Exit();
+			Environment.Exit(0);
+		}
+		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Application.Exit();
+			Environment.Exit(0);
+		}
+	}
 }

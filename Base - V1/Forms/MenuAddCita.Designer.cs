@@ -45,11 +45,10 @@
 			label2 = new Label();
 			timePicker = new DateTimePicker();
 			label6 = new Label();
-			label1 = new Label();
-			btnAgregar = new Button();
 			tableLayoutPanel5 = new TableLayoutPanel();
-			txtName = new TextBox();
 			button3 = new Button();
+			txtName = new TextBox();
+			label1 = new Label();
 			panel1.SuspendLayout();
 			tableLayoutPanel3.SuspendLayout();
 			tableLayoutPanel4.SuspendLayout();
@@ -262,33 +261,6 @@
 			label6.TabIndex = 21;
 			label6.Text = "Agendada para:";
 			// 
-			// label1
-			// 
-			label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label1.ForeColor = Color.FromArgb(158, 161, 176);
-			label1.Location = new Point(24, 33);
-			label1.Name = "label1";
-			label1.Size = new Size(237, 43);
-			label1.TabIndex = 9;
-			label1.Text = "Registro";
-			// 
-			// btnAgregar
-			// 
-			btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-			btnAgregar.AutoSize = true;
-			btnAgregar.BackColor = Color.FromArgb(0, 126, 249);
-			btnAgregar.FlatAppearance.BorderSize = 0;
-			btnAgregar.FlatStyle = FlatStyle.Flat;
-			btnAgregar.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			btnAgregar.ForeColor = Color.White;
-			btnAgregar.Location = new Point(760, 564);
-			btnAgregar.Name = "btnAgregar";
-			btnAgregar.Size = new Size(170, 39);
-			btnAgregar.TabIndex = 11;
-			btnAgregar.Text = "Agregar";
-			btnAgregar.UseVisualStyleBackColor = false;
-			btnAgregar.Click += btnAgregar_Click;
-			// 
 			// tableLayoutPanel5
 			// 
 			tableLayoutPanel5.ColumnCount = 2;
@@ -303,16 +275,6 @@
 			tableLayoutPanel5.Size = new Size(221, 54);
 			tableLayoutPanel5.TabIndex = 27;
 			// 
-			// txtName
-			// 
-			txtName.Anchor = AnchorStyles.Left;
-			txtName.Enabled = false;
-			txtName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			txtName.Location = new Point(3, 12);
-			txtName.Name = "txtName";
-			txtName.Size = new Size(168, 30);
-			txtName.TabIndex = 13;
-			// 
 			// button3
 			// 
 			button3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
@@ -324,13 +286,32 @@
 			button3.UseVisualStyleBackColor = true;
 			button3.Click += button3_Click;
 			// 
+			// txtName
+			// 
+			txtName.Anchor = AnchorStyles.Left;
+			txtName.Enabled = false;
+			txtName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			txtName.Location = new Point(3, 12);
+			txtName.Name = "txtName";
+			txtName.Size = new Size(168, 30);
+			txtName.TabIndex = 13;
+			// 
+			// label1
+			// 
+			label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			label1.ForeColor = Color.FromArgb(158, 161, 176);
+			label1.Location = new Point(24, 33);
+			label1.Name = "label1";
+			label1.Size = new Size(237, 43);
+			label1.TabIndex = 9;
+			label1.Text = "Registro";
+			// 
 			// MenuAddCita
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(46, 51, 73);
 			ClientSize = new Size(935, 618);
-			Controls.Add(btnAgregar);
 			Controls.Add(panel1);
 			FormBorderStyle = FormBorderStyle.None;
 			Name = "MenuAddCita";
@@ -347,7 +328,6 @@
 			tableLayoutPanel5.ResumeLayout(false);
 			tableLayoutPanel5.PerformLayout();
 			ResumeLayout(false);
-			PerformLayout();
 		}
 
 		#endregion
@@ -356,7 +336,6 @@
 		private Label label2;
 		private Label label1;
 		private Label label6;
-		private Button btnAgregar;
 		private Label IblTittle;
 		private DateTimePicker timePicker;
 		private Button button1;

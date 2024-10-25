@@ -79,6 +79,7 @@ namespace Base___V1
 			data.deleteCita(id);
 			MessageBox.Show("Se elimino la cita" + id);
 			citas = data.getCitas();
+			fillTable();
 		}
 		public void fillTable()
 		{
