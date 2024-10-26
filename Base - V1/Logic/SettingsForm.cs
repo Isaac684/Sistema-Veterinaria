@@ -44,7 +44,7 @@ namespace Base___V1.Forms
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-           DialogResult result = MessageBox.Show("¿Seguro quiere cancelar el ingreso de la vacuna?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+           DialogResult result = MessageBox.Show("¿Seguro quiere cancelar el cambio de pin?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Close();

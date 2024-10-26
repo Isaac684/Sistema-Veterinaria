@@ -173,7 +173,6 @@
             Btn6.Text = "Configurar PIN";
             Btn6.UseVisualStyleBackColor = false;
             Btn6.Click += Btn6_Click;
-            Btn6.Leave += Btn6_Leave;
             // 
             // Btn1
             // 
@@ -195,7 +194,6 @@
             Btn1.Text = "Administración";
             Btn1.UseVisualStyleBackColor = false;
             Btn1.Click += Btn1_Click;
-            Btn1.Leave += Btn1_Leave;
             // 
             // btnInv
             // 
@@ -259,7 +257,6 @@
             Btn2.Text = "Agregar paciente";
             Btn2.UseVisualStyleBackColor = false;
             Btn2.Click += Btn2_Click;
-            Btn2.Leave += Btn2_Leave;
             // 
             // btnCita
             // 

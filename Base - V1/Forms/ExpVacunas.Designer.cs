@@ -38,7 +38,7 @@
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.BackColor = Color.DarkCyan;
+            flowLayoutPanel1.BackColor = Color.Gainsboro;
             flowLayoutPanel1.Location = new Point(10, 59);
             flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -47,8 +47,9 @@
             // 
             // lblNombrePaciente
             // 
+            lblNombrePaciente.BackColor = Color.White;
             lblNombrePaciente.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNombrePaciente.ForeColor = Color.FromArgb(158, 161, 176);
+            lblNombrePaciente.ForeColor = Color.Black;
             lblNombrePaciente.Location = new Point(268, 15);
             lblNombrePaciente.Name = "lblNombrePaciente";
             lblNombrePaciente.Size = new Size(340, 32);
@@ -57,8 +58,9 @@
             // 
             // lblDatosPaciente
             // 
+            lblDatosPaciente.BackColor = Color.White;
             lblDatosPaciente.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDatosPaciente.ForeColor = Color.FromArgb(158, 161, 176);
+            lblDatosPaciente.ForeColor = Color.Black;
             lblDatosPaciente.Location = new Point(10, 15);
             lblDatosPaciente.Name = "lblDatosPaciente";
             lblDatosPaciente.Size = new Size(292, 32);
@@ -88,12 +90,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            BackColor = Color.FromArgb(32, 42, 64);
+            BackColor = Color.White;
             ClientSize = new Size(752, 445);
             Controls.Add(btnAgregar);
             Controls.Add(lblNombrePaciente);
             Controls.Add(lblDatosPaciente);
             Controls.Add(flowLayoutPanel1);
+            ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "ExpVacunas";

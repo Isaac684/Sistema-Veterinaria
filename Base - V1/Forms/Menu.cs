@@ -73,30 +73,6 @@ namespace Base___V1
         }
 
 
-        private void Btn1_Leave(object sender, EventArgs e)
-        {
-            Btn1.BackColor = Color.FromArgb(6, 77, 181);
-        }
-
-        private void Btn2_Leave(object sender, EventArgs e)
-        {
-            Btn2.BackColor = Color.FromArgb(6, 77, 181);
-        }
-
-        private void Btn6_Leave(object sender, EventArgs e)
-        {
-            Btn6.BackColor = Color.FromArgb(255, 255, 255);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCita_Click(object sender, EventArgs e)
         {
 
