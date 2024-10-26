@@ -52,7 +52,9 @@
             // 
             tblHistorialConsultas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tblHistorialConsultas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tblHistorialConsultas.BackgroundColor = Color.White;
             tblHistorialConsultas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tblHistorialConsultas.GridColor = Color.Black;
             tblHistorialConsultas.Location = new Point(0, 0);
             tblHistorialConsultas.Margin = new Padding(3, 2, 3, 2);
             tblHistorialConsultas.Name = "tblHistorialConsultas";
@@ -64,7 +66,7 @@
             // lblNombrePaciente
             // 
             lblNombrePaciente.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNombrePaciente.ForeColor = Color.FromArgb(158, 161, 176);
+            lblNombrePaciente.ForeColor = Color.Black;
             lblNombrePaciente.Location = new Point(307, 15);
             lblNombrePaciente.Name = "lblNombrePaciente";
             lblNombrePaciente.Size = new Size(340, 32);
@@ -74,7 +76,7 @@
             // lblDatosPaciente
             // 
             lblDatosPaciente.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDatosPaciente.ForeColor = Color.FromArgb(158, 161, 176);
+            lblDatosPaciente.ForeColor = Color.Black;
             lblDatosPaciente.Location = new Point(21, 15);
             lblDatosPaciente.Name = "lblDatosPaciente";
             lblDatosPaciente.Size = new Size(352, 32);
@@ -102,7 +104,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(32, 42, 64);
+            BackColor = Color.White;
             ClientSize = new Size(752, 445);
             Controls.Add(btnVerPaciente);
             Controls.Add(lblNombrePaciente);

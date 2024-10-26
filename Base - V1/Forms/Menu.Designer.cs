@@ -74,10 +74,10 @@
             // 
             PnlFormLoader.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PnlFormLoader.BackColor = Color.Transparent;
-            PnlFormLoader.Location = new Point(215, 45);
+            PnlFormLoader.Location = new Point(197, 45);
             PnlFormLoader.Margin = new Padding(3, 2, 3, 2);
             PnlFormLoader.Name = "PnlFormLoader";
-            PnlFormLoader.Size = new Size(821, 601);
+            PnlFormLoader.Size = new Size(839, 601);
             PnlFormLoader.TabIndex = 0;
             // 
             // panel1
@@ -87,10 +87,10 @@
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(IblTittle);
             panel1.Controls.Add(PanelNav);
-            panel1.Location = new Point(215, 0);
+            panel1.Location = new Point(197, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(821, 45);
+            panel1.Size = new Size(839, 45);
             panel1.TabIndex = 1;
             // 
             // panel4
@@ -99,7 +99,7 @@
             panel4.BackColor = Color.White;
             panel4.Controls.Add(textBox1);
             panel4.Controls.Add(pictureBox2);
-            panel4.Location = new Point(592, 5);
+            panel4.Location = new Point(610, 5);
             panel4.Name = "panel4";
             panel4.Size = new Size(226, 37);
             panel4.TabIndex = 8;
@@ -139,7 +139,7 @@
             IblTittle.ForeColor = Color.White;
             IblTittle.Location = new Point(0, 0);
             IblTittle.Name = "IblTittle";
-            IblTittle.Size = new Size(819, 43);
+            IblTittle.Size = new Size(837, 43);
             IblTittle.TabIndex = 1;
             IblTittle.Text = "Administración";
             IblTittle.TextAlign = ContentAlignment.MiddleCenter;
@@ -294,10 +294,10 @@
             sideBarContainer.Controls.Add(panel9);
             sideBarContainer.Dock = DockStyle.Left;
             sideBarContainer.Location = new Point(0, 0);
-            sideBarContainer.MaximumSize = new Size(217, 0);
+            sideBarContainer.MaximumSize = new Size(197, 0);
             sideBarContainer.MinimumSize = new Size(56, 0);
             sideBarContainer.Name = "sideBarContainer";
-            sideBarContainer.Size = new Size(217, 646);
+            sideBarContainer.Size = new Size(197, 646);
             sideBarContainer.TabIndex = 2;
             // 
             // panel2

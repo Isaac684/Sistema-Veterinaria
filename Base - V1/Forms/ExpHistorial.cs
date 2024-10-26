@@ -48,7 +48,7 @@ namespace Base___V1
                     menu2.textBox1.TextChanged -= txtbusqueda;
                     menu.PnlFormLoader2.Controls.Clear();
                     menu2.textBox1.Text = "";
-                    ExpNuevaConsulta abrirHistorial = new ExpNuevaConsulta(idDueño, idMascota, false, int.Parse(idConsulta),menu) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                    ExpNuevaConsulta abrirHistorial = new ExpNuevaConsulta(idDueño, idMascota, false, int.Parse(idConsulta), menu) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                     abrirHistorial.FormBorderStyle = FormBorderStyle.None;
                     menu.PnlFormLoader2.Controls.Add(abrirHistorial);
                     abrirHistorial.Show();
@@ -59,9 +59,10 @@ namespace Base___V1
                 }
             }
         }
-        private void txtbusqueda(object sender, EventArgs e) {
+        private void txtbusqueda(object sender, EventArgs e)
+        {
 
-            if(menu2.textBox1.Text != "" || menu2.textBox1.Text != "Busca algo...")
+            if (menu2.textBox1.Text != "" || menu2.textBox1.Text != "Busca algo...")
             {
                 data.ListarConsultasBusqueda(tblHistorialConsultas, int.Parse(idMascota), menu2.textBox1.Text);
             }
@@ -69,7 +70,7 @@ namespace Base___V1
             {
                 data.ListarConsultas(tblHistorialConsultas, int.Parse(idMascota));
             }
-        
+
         }
     }
 }

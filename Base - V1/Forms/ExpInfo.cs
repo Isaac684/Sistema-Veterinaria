@@ -15,28 +15,28 @@ using Base___V1.Models;
 
 namespace Base___V1
 {
-	public partial class ExpInfo : Form
-	{
-		public string idMascota;
-		public string idDueño;
-		private Mascota mascota;
-		private Dueño dueño;
-		private QuerysSQL data;
-		private AtributoDisenio disenio = new AtributoDisenio();
+    public partial class ExpInfo : Form
+    {
+        public string idMascota;
+        public string idDueño;
+        private Mascota mascota;
+        private Dueño dueño;
+        private QuerysSQL data;
+        private AtributoDisenio disenio = new AtributoDisenio();
 
-		public ExpInfo(string idMascota, string idDueño)
-		{
-			this.idDueño = idDueño;
-			this.idMascota = idMascota;
-			InitializeComponent();
-			this.AutoScroll = true;
-			enableTxt(false);
-			data = new QuerysSQL();
-			loadInformacion();
+        public ExpInfo(string idMascota, string idDueño)
+        {
+            this.idDueño = idDueño;
+            this.idMascota = idMascota;
+            InitializeComponent();
+            this.AutoScroll = true;
+            enableTxt(false);
+            data = new QuerysSQL();
+            loadInformacion();
 
-			disenio.RedondearBordes(pbFoto);
-			disenio.RedondearBordes(pb2);
-		}
+            disenio.RedondearBordes(pbFoto);
+            disenio.RedondearBordes(pb2);
+        }
 
 
 
@@ -95,11 +95,11 @@ namespace Base___V1
                 loadInformacion();
 
 
-			}
-		}
-		private void ExpInfo_FormClosed(object sender, FormClosedEventArgs e)
-		{
-		}
+            }
+        }
+        private void ExpInfo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+        }
 
         private void loadInformacion()
         {
@@ -131,22 +131,22 @@ namespace Base___V1
             if (m.getStringImagen() != "") { pbFoto.Image = m.getImagen(); }
         }
 
-		private void cbxCamara_SelectedIndexChanged(object sender, EventArgs e)
-		{
-		}
+        private void cbxCamara_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
 
-		private void btnCapturar_Click(object sender, EventArgs e)
-		{
+        private void btnCapturar_Click(object sender, EventArgs e)
+        {
 
-			using (Camara camara = new Camara())
-			{
-				if (camara.ShowDialog(Owner) == DialogResult.OK)
-				{
-					pb2.Image = camara.image;
-					pb2.SizeMode = PictureBoxSizeMode.StretchImage;
-				}
-			}
-		}
+            using (Camara camara = new Camara())
+            {
+                if (camara.ShowDialog(Owner) == DialogResult.OK)
+                {
+                    pb2.Image = camara.image;
+                    pb2.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+        }
 
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -161,6 +161,16 @@ namespace Base___V1
         }
 
         private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRaza_TextChanged(object sender, EventArgs e)
         {
 
         }
