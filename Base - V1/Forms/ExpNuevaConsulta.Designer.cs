@@ -2194,7 +2194,7 @@
             txtBoxMotivoConsulta.Location = new Point(165, 48);
             txtBoxMotivoConsulta.Margin = new Padding(3, 2, 3, 2);
             txtBoxMotivoConsulta.Name = "txtBoxMotivoConsulta";
-            txtBoxMotivoConsulta.Size = new Size(297, 26);
+            txtBoxMotivoConsulta.Size = new Size(195, 26);
             txtBoxMotivoConsulta.TabIndex = 84;
             // 
             // timer1

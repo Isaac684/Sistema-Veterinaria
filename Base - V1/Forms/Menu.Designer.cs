@@ -74,10 +74,10 @@
             // 
             PnlFormLoader.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PnlFormLoader.BackColor = Color.Transparent;
-            PnlFormLoader.Location = new Point(197, 45);
+            PnlFormLoader.Location = new Point(197, 61);
             PnlFormLoader.Margin = new Padding(3, 2, 3, 2);
             PnlFormLoader.Name = "PnlFormLoader";
-            PnlFormLoader.Size = new Size(839, 601);
+            PnlFormLoader.Size = new Size(839, 585);
             PnlFormLoader.TabIndex = 0;
             // 
             // panel1
@@ -90,7 +90,7 @@
             panel1.Location = new Point(197, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(839, 45);
+            panel1.Size = new Size(839, 62);
             panel1.TabIndex = 1;
             // 
             // panel4
@@ -99,7 +99,7 @@
             panel4.BackColor = Color.White;
             panel4.Controls.Add(textBox1);
             panel4.Controls.Add(pictureBox2);
-            panel4.Location = new Point(610, 5);
+            panel4.Location = new Point(601, 12);
             panel4.Name = "panel4";
             panel4.Size = new Size(226, 37);
             panel4.TabIndex = 8;
@@ -139,7 +139,7 @@
             IblTittle.ForeColor = Color.White;
             IblTittle.Location = new Point(0, 0);
             IblTittle.Name = "IblTittle";
-            IblTittle.Size = new Size(837, 43);
+            IblTittle.Size = new Size(837, 59);
             IblTittle.TabIndex = 1;
             IblTittle.Text = "Administración";
             IblTittle.TextAlign = ContentAlignment.MiddleCenter;
