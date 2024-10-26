@@ -42,14 +42,14 @@
             // 
             // button2
             // 
-            button2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button2.BackColor = Color.DimGray;
+            button2.Dock = DockStyle.Fill;
             button2.FlatStyle = FlatStyle.Flat;
             button2.ForeColor = SystemColors.Control;
-            button2.Location = new Point(224, 3);
+            button2.Location = new Point(224, 2);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(121, 26);
+            button2.Size = new Size(121, 28);
             button2.TabIndex = 2;
             button2.Text = "Cancelar";
             button2.UseVisualStyleBackColor = false;
@@ -57,6 +57,7 @@
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.BackColor = Color.White;
             tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 63.5F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 36.5F));
@@ -74,14 +75,14 @@
             // 
             // button1
             // 
-            button1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button1.BackColor = Color.FromArgb(31, 38, 67);
+            button1.Dock = DockStyle.Fill;
             button1.FlatStyle = FlatStyle.Flat;
             button1.ForeColor = SystemColors.Control;
-            button1.Location = new Point(351, 3);
+            button1.Location = new Point(351, 2);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(121, 26);
+            button1.Size = new Size(121, 28);
             button1.TabIndex = 3;
             button1.Text = "Aceptar";
             button1.UseVisualStyleBackColor = false;
@@ -98,8 +99,8 @@
             label1.Name = "label1";
             label1.Size = new Size(475, 32);
             label1.TabIndex = 11;
-            label1.Text = "Buscar mascota";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            label1.Text = "Buscar Mascota";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtSearch
             // 
@@ -107,6 +108,7 @@
             txtSearch.Location = new Point(3, 35);
             txtSearch.Margin = new Padding(3, 2, 3, 2);
             txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Ingresa aqui lo que buscarás...";
             txtSearch.Size = new Size(475, 23);
             txtSearch.TabIndex = 12;
             txtSearch.Tag = "";
@@ -119,7 +121,9 @@
             tbl_dues.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbl_dues.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbl_dues.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            tbl_dues.BackgroundColor = Color.White;
             tbl_dues.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tbl_dues.GridColor = Color.Black;
             tbl_dues.Location = new Point(3, 64);
             tbl_dues.Margin = new Padding(3, 2, 3, 2);
             tbl_dues.Name = "tbl_dues";
@@ -131,6 +135,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.White;
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
