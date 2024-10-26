@@ -21,10 +21,12 @@ namespace Base___V1
 	public partial class MenuAddPaciente : Form
 	{
 		private QuerysSQL data = new QuerysSQL();
+		private AtributoDisenio disenio = new AtributoDisenio();
 
 		public MenuAddPaciente()
 		{
 			InitializeComponent();
+			disenio.RedondearBordes(pb2);
 		}
 
 		private void btnAgregar_Click(object sender, EventArgs e)
