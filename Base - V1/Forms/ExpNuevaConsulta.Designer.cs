@@ -240,7 +240,7 @@
             // 
             checkVacuna.AutoSize = true;
             checkVacuna.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkVacuna.ForeColor = Color.White;
+            checkVacuna.ForeColor = Color.Black;
             checkVacuna.Location = new Point(24, 48);
             checkVacuna.Margin = new Padding(3, 2, 3, 2);
             checkVacuna.Name = "checkVacuna";
@@ -255,7 +255,7 @@
             // 
             checkRabia.AutoSize = true;
             checkRabia.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkRabia.ForeColor = Color.White;
+            checkRabia.ForeColor = Color.Black;
             checkRabia.Location = new Point(264, 48);
             checkRabia.Margin = new Padding(3, 2, 3, 2);
             checkRabia.Name = "checkRabia";
@@ -270,7 +270,7 @@
             // 
             checkQuintuple.AutoSize = true;
             checkQuintuple.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkQuintuple.ForeColor = Color.White;
+            checkQuintuple.ForeColor = Color.Black;
             checkQuintuple.Location = new Point(145, 47);
             checkQuintuple.Margin = new Padding(3, 2, 3, 2);
             checkQuintuple.Name = "checkQuintuple";
@@ -285,7 +285,7 @@
             // 
             checkParvovirus.AutoSize = true;
             checkParvovirus.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkParvovirus.ForeColor = Color.White;
+            checkParvovirus.ForeColor = Color.Black;
             checkParvovirus.Location = new Point(9, 82);
             checkParvovirus.Margin = new Padding(3, 2, 3, 2);
             checkParvovirus.Name = "checkParvovirus";
@@ -315,7 +315,7 @@
             // 
             checkTriFelina.AutoSize = true;
             checkTriFelina.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkTriFelina.ForeColor = Color.White;
+            checkTriFelina.ForeColor = Color.Black;
             checkTriFelina.Location = new Point(124, 83);
             checkTriFelina.Margin = new Padding(3, 2, 3, 2);
             checkTriFelina.Name = "checkTriFelina";
@@ -330,7 +330,7 @@
             // 
             checkBordetella.AutoSize = true;
             checkBordetella.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBordetella.ForeColor = Color.White;
+            checkBordetella.ForeColor = Color.Black;
             checkBordetella.Location = new Point(10, 117);
             checkBordetella.Margin = new Padding(3, 2, 3, 2);
             checkBordetella.Name = "checkBordetella";
@@ -345,7 +345,7 @@
             // 
             checkLeucemia.AutoSize = true;
             checkLeucemia.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkLeucemia.ForeColor = Color.White;
+            checkLeucemia.ForeColor = Color.Black;
             checkLeucemia.Location = new Point(145, 117);
             checkLeucemia.Margin = new Padding(3, 2, 3, 2);
             checkLeucemia.Name = "checkLeucemia";
@@ -360,7 +360,7 @@
             // 
             labelOtros.AutoSize = true;
             labelOtros.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelOtros.ForeColor = Color.White;
+            labelOtros.ForeColor = Color.Black;
             labelOtros.Location = new Point(10, 155);
             labelOtros.Name = "labelOtros";
             labelOtros.Size = new Size(42, 18);
@@ -378,7 +378,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(0, 126, 249);
+            panel1.BackColor = Color.WhiteSmoke;
             panel1.Controls.Add(btnMin1);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label1);
@@ -436,7 +436,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(10, 293);
             label1.Name = "label1";
             label1.Size = new Size(107, 18);
@@ -455,7 +455,7 @@
             // 
             checkGarrapatas.AutoSize = true;
             checkGarrapatas.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkGarrapatas.ForeColor = Color.White;
+            checkGarrapatas.ForeColor = Color.Black;
             checkGarrapatas.Location = new Point(10, 258);
             checkGarrapatas.Margin = new Padding(3, 2, 3, 2);
             checkGarrapatas.Name = "checkGarrapatas";
@@ -470,7 +470,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(188, 260);
             label2.Name = "label2";
             label2.Size = new Size(56, 18);
@@ -490,7 +490,7 @@
             // 
             labelMedi.AutoSize = true;
             labelMedi.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelMedi.ForeColor = Color.White;
+            labelMedi.ForeColor = Color.Black;
             labelMedi.Location = new Point(10, 223);
             labelMedi.Name = "labelMedi";
             labelMedi.Size = new Size(107, 18);
@@ -509,7 +509,7 @@
             // 
             checkParasitos.AutoSize = true;
             checkParasitos.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkParasitos.ForeColor = Color.White;
+            checkParasitos.ForeColor = Color.Black;
             checkParasitos.Location = new Point(10, 189);
             checkParasitos.Margin = new Padding(3, 2, 3, 2);
             checkParasitos.Name = "checkParasitos";
@@ -524,7 +524,7 @@
             // 
             labelParasitos.AutoSize = true;
             labelParasitos.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelParasitos.ForeColor = Color.White;
+            labelParasitos.ForeColor = Color.Black;
             labelParasitos.Location = new Point(177, 190);
             labelParasitos.Name = "labelParasitos";
             labelParasitos.Size = new Size(56, 18);
@@ -535,7 +535,7 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.AutoScroll = true;
-            panel2.BackColor = Color.FromArgb(0, 126, 249);
+            panel2.BackColor = Color.WhiteSmoke;
             panel2.Controls.Add(btnMin2);
             panel2.Controls.Add(textBox4);
             panel2.Controls.Add(label8);
@@ -556,7 +556,7 @@
             panel2.Location = new Point(384, 82);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.MaximumSize = new Size(0, 331);
-            panel2.MinimumSize = new Size(0, 29);
+            panel2.MinimumSize = new Size(354, 29);
             panel2.Name = "panel2";
             panel2.Size = new Size(354, 331);
             panel2.TabIndex = 84;
@@ -590,7 +590,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.White;
+            label8.ForeColor = Color.Black;
             label8.Location = new Point(10, 273);
             label8.Name = "label8";
             label8.Size = new Size(221, 18);
@@ -612,7 +612,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.White;
+            label7.ForeColor = Color.Black;
             label7.Location = new Point(10, 225);
             label7.Name = "label7";
             label7.Size = new Size(164, 18);
@@ -653,7 +653,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.White;
+            label6.ForeColor = Color.Black;
             label6.Location = new Point(10, 110);
             label6.Name = "label6";
             label6.Size = new Size(129, 18);
@@ -674,7 +674,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(10, 165);
             label4.Name = "label4";
             label4.Size = new Size(155, 18);
@@ -695,7 +695,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(10, 196);
             label3.Name = "label3";
             label3.Size = new Size(62, 18);
@@ -707,7 +707,7 @@
             checkBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             checkBox1.AutoSize = true;
             checkBox1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox1.ForeColor = Color.White;
+            checkBox1.ForeColor = Color.Black;
             checkBox1.Location = new Point(164, 138);
             checkBox1.Margin = new Padding(3, 2, 3, 2);
             checkBox1.Name = "checkBox1";
@@ -722,7 +722,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
+            label5.ForeColor = Color.Black;
             label5.Location = new Point(10, 84);
             label5.Name = "label5";
             label5.Size = new Size(122, 18);
@@ -733,7 +733,7 @@
             // 
             checkAcceso.AutoSize = true;
             checkAcceso.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkAcceso.ForeColor = Color.White;
+            checkAcceso.ForeColor = Color.Black;
             checkAcceso.Location = new Point(10, 138);
             checkAcceso.Margin = new Padding(3, 2, 3, 2);
             checkAcceso.Name = "checkAcceso";
@@ -748,7 +748,7 @@
             // 
             labelTenencia.AutoSize = true;
             labelTenencia.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTenencia.ForeColor = Color.White;
+            labelTenencia.ForeColor = Color.Black;
             labelTenencia.Location = new Point(10, 50);
             labelTenencia.Name = "labelTenencia";
             labelTenencia.Size = new Size(218, 18);
@@ -758,7 +758,7 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.BackColor = Color.DarkCyan;
+            panel3.BackColor = Color.WhiteSmoke;
             panel3.Controls.Add(panel10);
             panel3.Controls.Add(panel9);
             panel3.Controls.Add(panel8);
@@ -771,6 +771,7 @@
             panel3.Controls.Add(btnNewConsulta);
             panel3.Location = new Point(10, 462);
             panel3.Margin = new Padding(3, 2, 3, 2);
+            panel3.MinimumSize = new Size(728, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(728, 928);
             panel3.TabIndex = 85;
@@ -833,7 +834,7 @@
             // 
             label46.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label46.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label46.ForeColor = Color.FromArgb(32, 42, 64);
+            label46.ForeColor = Color.Black;
             label46.Location = new Point(11, 0);
             label46.Name = "label46";
             label46.Size = new Size(257, 24);
@@ -845,7 +846,7 @@
             label47.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label47.AutoSize = true;
             label47.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label47.ForeColor = Color.White;
+            label47.ForeColor = Color.Black;
             label47.Location = new Point(11, 61);
             label47.Name = "label47";
             label47.Size = new Size(113, 18);
@@ -867,7 +868,7 @@
             label45.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label45.AutoSize = true;
             label45.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label45.ForeColor = Color.White;
+            label45.ForeColor = Color.Black;
             label45.Location = new Point(311, 62);
             label45.Name = "label45";
             label45.Size = new Size(79, 18);
@@ -889,7 +890,7 @@
             checkBox13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox13.AutoSize = true;
             checkBox13.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox13.ForeColor = Color.White;
+            checkBox13.ForeColor = Color.Black;
             checkBox13.Location = new Point(11, 90);
             checkBox13.Margin = new Padding(3, 2, 3, 2);
             checkBox13.Name = "checkBox13";
@@ -905,7 +906,7 @@
             label44.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label44.AutoSize = true;
             label44.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label44.ForeColor = Color.White;
+            label44.ForeColor = Color.Black;
             label44.Location = new Point(487, 91);
             label44.Name = "label44";
             label44.Size = new Size(44, 18);
@@ -927,7 +928,7 @@
             checkBox12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox12.AutoSize = true;
             checkBox12.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox12.ForeColor = Color.White;
+            checkBox12.ForeColor = Color.Black;
             checkBox12.Location = new Point(239, 90);
             checkBox12.Margin = new Padding(3, 2, 3, 2);
             checkBox12.Name = "checkBox12";
@@ -943,7 +944,7 @@
             label43.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label43.AutoSize = true;
             label43.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label43.ForeColor = Color.White;
+            label43.ForeColor = Color.Black;
             label43.Location = new Point(11, 154);
             label43.Name = "label43";
             label43.Size = new Size(53, 18);
@@ -975,7 +976,7 @@
             label52.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label52.AutoSize = true;
             label52.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label52.ForeColor = Color.White;
+            label52.ForeColor = Color.Black;
             label52.Location = new Point(457, 184);
             label52.Name = "label52";
             label52.Size = new Size(75, 18);
@@ -987,7 +988,7 @@
             label42.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label42.AutoSize = true;
             label42.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label42.ForeColor = Color.White;
+            label42.ForeColor = Color.Black;
             label42.Location = new Point(161, 154);
             label42.Name = "label42";
             label42.Size = new Size(75, 18);
@@ -1019,7 +1020,7 @@
             label53.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label53.AutoSize = true;
             label53.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label53.ForeColor = Color.White;
+            label53.ForeColor = Color.Black;
             label53.Location = new Point(302, 184);
             label53.Name = "label53";
             label53.Size = new Size(115, 18);
@@ -1031,7 +1032,7 @@
             label38.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label38.AutoSize = true;
             label38.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label38.ForeColor = Color.White;
+            label38.ForeColor = Color.Black;
             label38.Location = new Point(337, 154);
             label38.Name = "label38";
             label38.Size = new Size(67, 18);
@@ -1063,7 +1064,7 @@
             label54.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label54.AutoSize = true;
             label54.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label54.ForeColor = Color.White;
+            label54.ForeColor = Color.Black;
             label54.Location = new Point(11, 184);
             label54.Name = "label54";
             label54.Size = new Size(79, 18);
@@ -1074,7 +1075,7 @@
             // 
             label48.AutoSize = true;
             label48.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label48.ForeColor = Color.White;
+            label48.ForeColor = Color.Black;
             label48.Location = new Point(11, 30);
             label48.Name = "label48";
             label48.Size = new Size(129, 18);
@@ -1106,7 +1107,7 @@
             label50.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label50.AutoSize = true;
             label50.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label50.ForeColor = Color.White;
+            label50.ForeColor = Color.Black;
             label50.Location = new Point(314, 121);
             label50.Name = "label50";
             label50.Size = new Size(73, 18);
@@ -1118,7 +1119,7 @@
             label49.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label49.AutoSize = true;
             label49.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label49.ForeColor = Color.White;
+            label49.ForeColor = Color.Black;
             label49.Location = new Point(527, 154);
             label49.Name = "label49";
             label49.Size = new Size(72, 18);
@@ -1150,7 +1151,7 @@
             label51.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label51.AutoSize = true;
             label51.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label51.ForeColor = Color.White;
+            label51.ForeColor = Color.Black;
             label51.Location = new Point(11, 124);
             label51.Name = "label51";
             label51.Size = new Size(83, 18);
@@ -1212,7 +1213,7 @@
             label41.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label41.AutoSize = true;
             label41.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label41.ForeColor = Color.White;
+            label41.ForeColor = Color.Black;
             label41.Location = new Point(13, 39);
             label41.Name = "label41";
             label41.Size = new Size(50, 18);
@@ -1223,7 +1224,7 @@
             // 
             label40.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label40.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label40.ForeColor = Color.FromArgb(32, 42, 64);
+            label40.ForeColor = Color.Black;
             label40.Location = new Point(13, 10);
             label40.Name = "label40";
             label40.Size = new Size(265, 29);
@@ -1245,7 +1246,7 @@
             label39.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label39.AutoSize = true;
             label39.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label39.ForeColor = Color.White;
+            label39.ForeColor = Color.Black;
             label39.Location = new Point(251, 39);
             label39.Name = "label39";
             label39.Size = new Size(108, 18);
@@ -1257,7 +1258,7 @@
             checkBox7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox7.AutoSize = true;
             checkBox7.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox7.ForeColor = Color.White;
+            checkBox7.ForeColor = Color.Black;
             checkBox7.Location = new Point(13, 70);
             checkBox7.Margin = new Padding(3, 2, 3, 2);
             checkBox7.Name = "checkBox7";
@@ -1273,7 +1274,7 @@
             label37.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label37.AutoSize = true;
             label37.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label37.ForeColor = Color.White;
+            label37.ForeColor = Color.Black;
             label37.Location = new Point(433, 70);
             label37.Name = "label37";
             label37.Size = new Size(107, 18);
@@ -1295,7 +1296,7 @@
             checkBox6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox6.AutoSize = true;
             checkBox6.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox6.ForeColor = Color.White;
+            checkBox6.ForeColor = Color.Black;
             checkBox6.Location = new Point(241, 68);
             checkBox6.Margin = new Padding(3, 2, 3, 2);
             checkBox6.Name = "checkBox6";
@@ -1311,7 +1312,7 @@
             label35.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label35.AutoSize = true;
             label35.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label35.ForeColor = Color.White;
+            label35.ForeColor = Color.Black;
             label35.Location = new Point(13, 100);
             label35.Name = "label35";
             label35.Size = new Size(89, 18);
@@ -1333,7 +1334,7 @@
             label32.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label32.AutoSize = true;
             label32.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label32.ForeColor = Color.White;
+            label32.ForeColor = Color.Black;
             label32.Location = new Point(220, 100);
             label32.Name = "label32";
             label32.Size = new Size(92, 18);
@@ -1355,7 +1356,7 @@
             label36.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label36.AutoSize = true;
             label36.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label36.ForeColor = Color.White;
+            label36.ForeColor = Color.Black;
             label36.Location = new Point(433, 100);
             label36.Name = "label36";
             label36.Size = new Size(202, 18);
@@ -1408,7 +1409,7 @@
             // 
             label33.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label33.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label33.ForeColor = Color.FromArgb(32, 42, 64);
+            label33.ForeColor = Color.Black;
             label33.Location = new Point(11, 6);
             label33.Name = "label33";
             label33.Size = new Size(281, 27);
@@ -1420,7 +1421,7 @@
             label34.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label34.AutoSize = true;
             label34.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label34.ForeColor = Color.White;
+            label34.ForeColor = Color.Black;
             label34.Location = new Point(11, 37);
             label34.Name = "label34";
             label34.Size = new Size(150, 18);
@@ -1442,7 +1443,7 @@
             label31.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label31.AutoSize = true;
             label31.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label31.ForeColor = Color.White;
+            label31.ForeColor = Color.Black;
             label31.Location = new Point(11, 67);
             label31.Name = "label31";
             label31.Size = new Size(73, 18);
@@ -1464,7 +1465,7 @@
             label30.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label30.AutoSize = true;
             label30.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label30.ForeColor = Color.White;
+            label30.ForeColor = Color.Black;
             label30.Location = new Point(256, 67);
             label30.Name = "label30";
             label30.Size = new Size(99, 18);
@@ -1522,7 +1523,7 @@
             // 
             label27.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label27.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label27.ForeColor = Color.FromArgb(32, 42, 64);
+            label27.ForeColor = Color.Black;
             label27.Location = new Point(8, 2);
             label27.Name = "label27";
             label27.Size = new Size(245, 33);
@@ -1534,7 +1535,7 @@
             label28.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label28.AutoSize = true;
             label28.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label28.ForeColor = Color.White;
+            label28.ForeColor = Color.Black;
             label28.Location = new Point(8, 39);
             label28.Name = "label28";
             label28.Size = new Size(36, 18);
@@ -1556,7 +1557,7 @@
             label26.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label26.AutoSize = true;
             label26.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label26.ForeColor = Color.White;
+            label26.ForeColor = Color.Black;
             label26.Location = new Point(288, 39);
             label26.Name = "label26";
             label26.Size = new Size(42, 18);
@@ -1578,7 +1579,7 @@
             label25.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label25.AutoSize = true;
             label25.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label25.ForeColor = Color.White;
+            label25.ForeColor = Color.Black;
             label25.Location = new Point(8, 69);
             label25.Name = "label25";
             label25.Size = new Size(91, 18);
@@ -1601,7 +1602,7 @@
             label24.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label24.AutoSize = true;
             label24.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label24.ForeColor = Color.White;
+            label24.ForeColor = Color.Black;
             label24.Location = new Point(428, 68);
             label24.Name = "label24";
             label24.Size = new Size(122, 18);
@@ -1623,7 +1624,7 @@
             label29.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label29.AutoSize = true;
             label29.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label29.ForeColor = Color.White;
+            label29.ForeColor = Color.Black;
             label29.Location = new Point(495, 39);
             label29.Name = "label29";
             label29.Size = new Size(62, 18);
@@ -1690,7 +1691,7 @@
             // 
             label19.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label19.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.ForeColor = Color.FromArgb(32, 42, 64);
+            label19.ForeColor = Color.Black;
             label19.Location = new Point(3, 0);
             label19.Name = "label19";
             label19.Size = new Size(265, 29);
@@ -1702,7 +1703,7 @@
             label20.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label20.AutoSize = true;
             label20.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label20.ForeColor = Color.White;
+            label20.ForeColor = Color.Black;
             label20.Location = new Point(3, 34);
             label20.Name = "label20";
             label20.Size = new Size(62, 18);
@@ -1724,7 +1725,7 @@
             label16.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label16.AutoSize = true;
             label16.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.ForeColor = Color.White;
+            label16.ForeColor = Color.Black;
             label16.Location = new Point(221, 35);
             label16.Name = "label16";
             label16.Size = new Size(123, 18);
@@ -1746,7 +1747,7 @@
             label14.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label14.AutoSize = true;
             label14.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label14.ForeColor = Color.White;
+            label14.ForeColor = Color.Black;
             label14.Location = new Point(93, 67);
             label14.Name = "label14";
             label14.Size = new Size(90, 18);
@@ -1768,7 +1769,7 @@
             checkBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox2.AutoSize = true;
             checkBox2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox2.ForeColor = Color.White;
+            checkBox2.ForeColor = Color.Black;
             checkBox2.Location = new Point(3, 66);
             checkBox2.Margin = new Padding(3, 2, 3, 2);
             checkBox2.Name = "checkBox2";
@@ -1784,7 +1785,7 @@
             label15.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label15.AutoSize = true;
             label15.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.ForeColor = Color.White;
+            label15.ForeColor = Color.Black;
             label15.Location = new Point(280, 63);
             label15.Name = "label15";
             label15.Size = new Size(70, 18);
@@ -1806,7 +1807,7 @@
             label22.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label22.AutoSize = true;
             label22.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label22.ForeColor = Color.White;
+            label22.ForeColor = Color.Black;
             label22.Location = new Point(93, 99);
             label22.Name = "label22";
             label22.Size = new Size(90, 18);
@@ -1828,7 +1829,7 @@
             checkBox11.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox11.AutoSize = true;
             checkBox11.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox11.ForeColor = Color.White;
+            checkBox11.ForeColor = Color.Black;
             checkBox11.Location = new Point(3, 97);
             checkBox11.Margin = new Padding(3, 2, 3, 2);
             checkBox11.Name = "checkBox11";
@@ -1844,7 +1845,7 @@
             label21.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label21.AutoSize = true;
             label21.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.ForeColor = Color.White;
+            label21.ForeColor = Color.Black;
             label21.Location = new Point(274, 97);
             label21.Name = "label21";
             label21.Size = new Size(50, 18);
@@ -1866,7 +1867,7 @@
             label23.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label23.AutoSize = true;
             label23.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label23.ForeColor = Color.White;
+            label23.ForeColor = Color.Black;
             label23.Location = new Point(479, 96);
             label23.Name = "label23";
             label23.Size = new Size(70, 18);
@@ -1888,7 +1889,7 @@
             checkBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox3.AutoSize = true;
             checkBox3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox3.ForeColor = Color.White;
+            checkBox3.ForeColor = Color.Black;
             checkBox3.Location = new Point(3, 134);
             checkBox3.Margin = new Padding(3, 2, 3, 2);
             checkBox3.Name = "checkBox3";
@@ -1904,7 +1905,7 @@
             checkBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox4.AutoSize = true;
             checkBox4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox4.ForeColor = Color.White;
+            checkBox4.ForeColor = Color.Black;
             checkBox4.Location = new Point(159, 134);
             checkBox4.Margin = new Padding(3, 2, 3, 2);
             checkBox4.Name = "checkBox4";
@@ -1920,7 +1921,7 @@
             checkBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox5.AutoSize = true;
             checkBox5.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox5.ForeColor = Color.White;
+            checkBox5.ForeColor = Color.Black;
             checkBox5.Location = new Point(305, 134);
             checkBox5.Margin = new Padding(3, 2, 3, 2);
             checkBox5.Name = "checkBox5";
@@ -1963,7 +1964,7 @@
             // 
             label17.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label17.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.ForeColor = Color.FromArgb(32, 42, 64);
+            label17.ForeColor = Color.Black;
             label17.Location = new Point(9, 0);
             label17.Name = "label17";
             label17.Size = new Size(377, 25);
@@ -1975,7 +1976,7 @@
             label18.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label18.AutoSize = true;
             label18.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label18.ForeColor = Color.White;
+            label18.ForeColor = Color.Black;
             label18.Location = new Point(9, 35);
             label18.Name = "label18";
             label18.Size = new Size(92, 18);
@@ -2041,7 +2042,7 @@
             label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label10.AutoSize = true;
             label10.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.White;
+            label10.ForeColor = Color.Black;
             label10.Location = new Point(11, 38);
             label10.Name = "label10";
             label10.Size = new Size(70, 18);
@@ -2052,7 +2053,7 @@
             // 
             label9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label9.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.FromArgb(32, 42, 64);
+            label9.ForeColor = Color.Black;
             label9.Location = new Point(11, 6);
             label9.Name = "label9";
             label9.Size = new Size(274, 26);
@@ -2074,7 +2075,7 @@
             label11.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.White;
+            label11.ForeColor = Color.Black;
             label11.Location = new Point(304, 40);
             label11.Name = "label11";
             label11.Size = new Size(76, 18);
@@ -2086,7 +2087,7 @@
             label12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label12.AutoSize = true;
             label12.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.White;
+            label12.ForeColor = Color.Black;
             label12.Location = new Point(11, 67);
             label12.Name = "label12";
             label12.Size = new Size(74, 18);
@@ -2108,7 +2109,7 @@
             label13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label13.AutoSize = true;
             label13.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.ForeColor = Color.White;
+            label13.ForeColor = Color.Black;
             label13.Location = new Point(304, 67);
             label13.Name = "label13";
             label13.Size = new Size(79, 18);
@@ -2146,7 +2147,7 @@
             // 
             cbEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbEditar.AutoSize = true;
-            cbEditar.ForeColor = SystemColors.ButtonHighlight;
+            cbEditar.ForeColor = Color.Black;
             cbEditar.Location = new Point(451, 891);
             cbEditar.Margin = new Padding(3, 2, 3, 2);
             cbEditar.Name = "cbEditar";
@@ -2193,7 +2194,7 @@
             txtBoxMotivoConsulta.Location = new Point(165, 48);
             txtBoxMotivoConsulta.Margin = new Padding(3, 2, 3, 2);
             txtBoxMotivoConsulta.Name = "txtBoxMotivoConsulta";
-            txtBoxMotivoConsulta.Size = new Size(257, 26);
+            txtBoxMotivoConsulta.Size = new Size(297, 26);
             txtBoxMotivoConsulta.TabIndex = 84;
             // 
             // timer1
@@ -2255,6 +2256,7 @@
             Controls.Add(panel1);
             Controls.Add(lblNombrePaciente);
             Controls.Add(lblDatosPaciente);
+            ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "ExpNuevaConsulta";

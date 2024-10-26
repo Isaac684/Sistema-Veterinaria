@@ -740,9 +740,9 @@ namespace Base___V1
 
             panel3.Height = panel10.Bottom + 50;
 
-            button1.Location = new Point(button1.Location.X, panel3.Height - 30);
-            btnNewConsulta.Location = new Point(btnNewConsulta.Location.X, panel3.Height - 30);
-            cbEditar.Location = new Point(cbEditar.Location.X, panel3.Height - 30);
+            button1.Location = new Point(button1.Location.X, panel3.Height - 40);
+            btnNewConsulta.Location = new Point(btnNewConsulta.Location.X, panel3.Height - 40);
+            cbEditar.Location = new Point(cbEditar.Location.X, panel3.Height - 40);
         }
     }
 }
