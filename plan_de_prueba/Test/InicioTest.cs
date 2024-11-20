@@ -40,6 +40,7 @@ namespace plan_de_prueba
         [TestMethod]
         public void ValidarPin_CuandoEsCorrecto_AbrirMenu()
         {
+            Inicializar();
             // Arrange
             string pin = "11111"; // Asumiendo que este es un PIN válido
 
@@ -60,6 +61,7 @@ namespace plan_de_prueba
         [TestMethod]
         public void ValidarPin_CuandoEsIncorrecto_MostrarMensajeError()
         {
+            Inicializar();
             // Arrange
             string pin = "00000"; // PIN inválido
 
@@ -81,6 +83,7 @@ namespace plan_de_prueba
         [TestMethod]
         public void TextBox_NavegacionAutomatica_FuncionaCorrectamente()
         {
+            Inicializar();
             // Act & Assert
             InvocarControlEnHiloPrincipal(() => {
                 // Simular entrada en primer TextBox
@@ -100,6 +103,7 @@ namespace plan_de_prueba
         [TestMethod]
         public void EnvioCorreos_VerificarCreacionArchivo()
         {
+            Inicializar();
             // Arrange
             string appDataFolder = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
@@ -122,6 +126,7 @@ namespace plan_de_prueba
 
         private void InvocarControlEnHiloPrincipal(MethodInvoker metodo)
         {
+            Inicializar();
             if (_formulario.InvokeRequired)
             {
                 _formulario.Invoke(metodo);

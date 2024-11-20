@@ -14,6 +14,7 @@ namespace Base___V1.Logic
     {
         private ConexionBase Conexion = new ConexionBase();
         private MySqlCommand Comando = new MySqlCommand();
+        public Vacunas vacuna;
         //private MySqlDataReader leerFilas;
 
 
@@ -864,9 +865,9 @@ namespace Base___V1.Logic
             }
             return dataGridView;
         }
-        public bool ingresarVacuna(Vacunas vacuna)
+        public bool ingresarVacuna(Vacunas vac)
         {
-
+            vacuna = vac;
             Comando.Connection = Conexion.abrirConexion();
             Comando.CommandText = "INSERT INTO tb_vacunas (nombre, fechaUltAplicacion, fechaProxAplicacion, nombre_doctor, idMascota) VALUES (@Nombre, @FechaUltAplicacion, @FechaProxAplicacion, @NombreDoctor, @IdMascota)";
             Comando.Parameters.AddWithValue("@Nombre", vacuna.Nombre);

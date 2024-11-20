@@ -17,6 +17,7 @@ namespace Base___V1
     {
         private int idMascota;
         private QuerysSQL data;
+        public List<Vacunas> dataVacunas;
         public ExpVacunas(int idMascota)
         {
             this.idMascota = idMascota;
@@ -31,7 +32,7 @@ namespace Base___V1
 
         public void GenerateDynamicWidget()
         {
-            List<Vacunas> dataVacunas = data.obtenerVacunas(idMascota);
+            dataVacunas = data.obtenerVacunas(idMascota);
             flowLayoutPanel1.Controls.Clear();
 
             WidgetVacuna[] listItems = new WidgetVacuna[dataVacunas.Count];

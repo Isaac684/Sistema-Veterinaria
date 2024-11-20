@@ -16,15 +16,20 @@
     <PackageReference Include="AForge.Video" Version="2.2.5" />
     <PackageReference Include="AForge.Video.DirectShow" Version="2.2.5" />
     <PackageReference Include="Appium.WebDriver" Version="6.0.1" />
+    <PackageReference Include="Castle.Core" Version="5.1.1" />
+    <PackageReference Include="FlaUI.Core" Version="4.0.0" />
+    <PackageReference Include="FlaUI.UIA3" Version="4.0.0" />
     <PackageReference Include="GSF.Core" Version="2.4.28" />
     <PackageReference Include="MaterialSkin" Version="0.2.1" />
     <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
+    <PackageReference Include="Moq" Version="4.20.72" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.6.3" />
     <PackageReference Include="MSTest.TestFramework" Version="3.6.3" />
     <PackageReference Include="MySql.Data" Version="9.1.0" />
     <PackageReference Include="NUnit" Version="4.2.2" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
     <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="27.1.56" />
+    <PackageReference Include="TestStack.White" Version="0.13.3" />
     <PackageReference Include="WindowsAzure.ServiceBus" Version="7.0.1" />
   </ItemGroup>
 

@@ -15,8 +15,9 @@ namespace Base___V1.Forms
     public partial class VacunaForm : Form
     {
         private int idMascota;
-        private QuerysSQL data;
+        public QuerysSQL data;
         private ExpVacunas expVacunas;
+        public Vacunas vac;
         public VacunaForm(int idMascota, ExpVacunas expVacunas)
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Base___V1.Forms
         {
             if(txtNombreVacuna.Text != "" && txtDr.Text != "")
             {
-                Vacunas vac = new Vacunas();
+                vac = new Vacunas();
                 vac.Nombre = txtNombreVacuna.Text;
                 vac.NombreDoctor = txtDr.Text;
                 vac.FechaUltAplicacion = dateAplicacion.Value.ToString("dd/MM/yyyy");
