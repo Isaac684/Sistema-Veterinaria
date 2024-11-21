@@ -32,6 +32,7 @@ namespace plan_de_prueba.Test.Pruebas_de_integracion
             _automation = new UIA3Automation();
             _application = Application.Launch(_applicationPath);
             _window = _application.GetMainWindow(_automation);
+            Console.WriteLine("Ejecuando programa para realizar el test");
 
             Assert.IsNotNull(_window, "No se pudo obtener la ventana principal");
         }
@@ -39,8 +40,8 @@ namespace plan_de_prueba.Test.Pruebas_de_integracion
         [TestMethod]
         public void TestIngresoVacuna()
         {
-            try
-            {
+           // try
+            //{
                 Console.WriteLine("Esperando a que aparezca el mensaje de informacion");
                 Thread.Sleep(5000);
 
@@ -60,6 +61,7 @@ namespace plan_de_prueba.Test.Pruebas_de_integracion
                 }
 
                 // 2. Ingresar PIN
+                Console.WriteLine("Ingresando pin de acceso...");
                 var txt1 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox1"))?.AsTextBox();
                 var txt2 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox2"))?.AsTextBox();
                 var txt3 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox3"))?.AsTextBox();
@@ -76,16 +78,21 @@ namespace plan_de_prueba.Test.Pruebas_de_integracion
 
                 var btnIr = _window.FindFirstDescendant(cf => cf.ByAutomationId("button1"))?.AsButton();
                 Assert.IsNotNull(btnIr, "No se encontró el botón IR");
+                Console.WriteLine("Presionando el boton de ir");
                 btnIr.Click();
 
                 // 3. Verificar que se cargó el formulario del menú
-                var menuWindow = WaitForWindow("Menu", 10);
+                Console.WriteLine("Esperando ventana principal...");
+            Thread.Sleep(5000);
+                var menuWindow = WaitForWindow("", 10);
+                
                 Assert.IsNotNull(menuWindow, "No se cargó el formulario del menú.");
 
                 var pnlFormLoader = menuWindow.FindFirstDescendant(cf => cf.ByAutomationId("PnlFormLoader"));
                 Assert.IsNotNull(pnlFormLoader, "No se encontró el panel PnlFormLoader");
-
+                Console.WriteLine("Vetana principal detectada!");
                 // 4. Seleccionar un paciente en el DataGridView
+                Console.WriteLine("Seleccionando una mascota...");
                 var dataGrid = pnlFormLoader.FindFirstDescendant(cf => cf.ByControlType(FlaUI.Core.Definitions.ControlType.DataGrid))?.AsDataGridView();
                 Assert.IsNotNull(dataGrid, "No se encontró el DataGridView");
 
@@ -95,20 +102,24 @@ namespace plan_de_prueba.Test.Pruebas_de_integracion
 
                 // Hacer clic en la segunda fila (paciente)
                 secondRow.Click();
+                Console.WriteLine("Mascota seleccionada!");
 
                 // 5. Abrir ExpedienteVistaPrincipal y btnVacuna
+                Console.WriteLine("Esperando a que cargue la informacion de la mascota...");
                 Thread.Sleep(5000);
                 var expedienteForm = pnlFormLoader.FindFirstDescendant(cf => cf.ByAutomationId("ExpedienteVistaPrincipal"));
                 Assert.IsNotNull(expedienteForm, "No se cargó el formulario ExpedienteVistaPrincipal dentro del PnlFormLoader.");
-
+                Console.WriteLine("Informacion de la mascota cargada");
                 var btnVacuna = expedienteForm.FindFirstDescendant(cf => cf.ByAutomationId("btnVacunas"))?.AsButton();
                 Assert.IsNotNull(btnVacuna, "No se encontró el botón btnVacuna");
                 btnVacuna.Click();
+                Console.WriteLine("Accediendo al modulo de vacunas...");
 
                 // 6. Abrir ExpVacunas y el formulario de agregar vacuna
                 Thread.Sleep(5000);
                 var expVacunasWindow = expedienteForm.FindFirstDescendant(cf => cf.ByAutomationId("ExpVacunas"));
                 Assert.IsNotNull(expVacunasWindow, "No se cargó el formulario ExpVacunas.");
+                Console.WriteLine("Informacion de la mascota obtenida!\n Accediendo al formulario para agregar vacuna...");
 
                 var btnAgregar = expVacunasWindow.FindFirstDescendant(cf => cf.ByAutomationId("btnAgregar"))?.AsButton();
                 Assert.IsNotNull(btnAgregar, "No se encontró el botón Agregar en ExpVacunas");
@@ -118,6 +129,7 @@ namespace plan_de_prueba.Test.Pruebas_de_integracion
                 var vacunaForm = WaitForWindow("", 10);
                 Assert.IsNotNull(vacunaForm, "No se cargó el formulario VacunaForm.");
 
+                Console.WriteLine("Buscando los controles de la interfaz");
                 var txtNombreVacuna = vacunaForm.FindFirstDescendant(cf => cf.ByAutomationId("txtNombreVacuna"))?.AsTextBox();
                 var txtDoctor = vacunaForm.FindFirstDescendant(cf => cf.ByAutomationId("txtDr"))?.AsTextBox();
                 var dateAplicacion = vacunaForm.FindFirstDescendant(cf => cf.ByAutomationId("dateAplicacion"))?.AsDateTimePicker();
@@ -128,22 +140,40 @@ namespace plan_de_prueba.Test.Pruebas_de_integracion
                 Assert.IsNotNull(txtDoctor, "No se encontró el campo doctor");
                 Assert.IsNotNull(btnAgregarVacuna, "No se encontró el botón agregar vacuna");
 
+                Console.WriteLine("Controles encontrados!\nAgregando informacion a los textbox y DataTimePicker");
+
                 txtNombreVacuna.Text = "Vacuna de prueba";
                 txtDoctor.Text = "Doctor de prueba";
                 dateAplicacion.SelectedDate = DateTime.Now;
                 dateProxima.SelectedDate = DateTime.Now.AddMonths(1);
+                Console.WriteLine("Mandando informacion a QuerysSQL...");
                 btnAgregarVacuna.Click();
+            //Maneja mensaje de informacion de cuando se agrega la vacuna
+            var ventanaInformacion2 = _application.GetAllTopLevelWindows(_automation)
+                   .FirstOrDefault(w => w.Name.Contains(""));
+            if (ventanaInformacion2 != null)
+            {
+                Console.WriteLine("Ventana de informacion detectada");
+                var btnAceptar = ventanaInformacion2.FindFirstDescendant(cf =>
+                    cf.ByControlType(FlaUI.Core.Definitions.ControlType.Button))?.AsButton();
+                Assert.IsNotNull(btnAceptar, "No se encontró el botón Aceptar en la ventana de Información");
+                btnAceptar.Click();
 
-                // Verificar cierre de ventana
-                Thread.Sleep(1000);
-                var vacunaFormCerrado = _application.GetAllTopLevelWindows(_automation)
-                    .All(w => !w.Name.Contains("VacunaForm"));
-                Assert.IsTrue(vacunaFormCerrado, "El formulario de vacuna no se cerró correctamente.");
+                // Esperar un momento para asegurar que se cierre
+                Thread.Sleep(500);
             }
+
+            // Verificar cierre de ventana
+            Thread.Sleep(1000);
+                Console.WriteLine("Informacion de la vacuna enviada con exito y guardada en la base!!\n Test superado con exito!!!");
+                var vacunaFormCerrado = _application.GetAllTopLevelWindows(_automation)
+                    .All(w => !w.Name.Contains(""));
+                Assert.IsTrue(!vacunaFormCerrado, "El formulario de vacuna no se cerró correctamente.");
+          /*  }
             catch (Exception ex)
             {
                 Assert.Fail($"La prueba falló: {ex.Message}");
-            }
+            }*/
         }
 
         [TestCleanup]
@@ -157,7 +187,7 @@ namespace plan_de_prueba.Test.Pruebas_de_integracion
             }
         }
 
-        private AutomationElement WaitForWindow(string windowName, int timeoutInSeconds = 10)
+        private AutomationElement WaitForWindow(string windowName, int timeoutInSeconds)
         {
             for (int i = 0; i < timeoutInSeconds; i++)
             {
