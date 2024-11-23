@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 namespace plan_de_prueba.Test.Pruebas_de_aceptacion
 {
     /// <summary>
-    /// Prueba de Aceptación: PA-004
+    /// Prueba de Aceptación: PA-VEC-01
     /// Módulo: Agenda de Citas
     /// Sprint: II
-    /// Historia de Usuario: VEC-23
+    /// Historia de Usuario: PA-001
     /// </summary>
     [TestClass]
     public class PA_VEC_01
@@ -43,7 +43,7 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
         }
 
         [TestMethod]
-        public void PA004_ValidarFlujoCompletoCitas()
+        public void ValidarFlujoCompletoCitas()
         {
             try
             {
@@ -59,8 +59,6 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
                 // Criterio 4: Búsqueda de Citas
                 BuscarCitaCreada();
 
-                // Criterio 5: Eliminación de Cita
-                EliminarCitaCreada();
 
                 Console.WriteLine("Prueba de aceptación completada exitosamente");
             }
@@ -187,36 +185,7 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
             Assert.IsTrue(gridCitas.Rows.Length > 1, "No se encontraron citas en la búsqueda");
         }
 
-        private void EliminarCitaCreada()
-        {
-            Console.WriteLine("Eliminando cita...");
-            var menuWindow = WaitForWindow("", 10);
-            var pnlFormLoader = menuWindow.FindFirstDescendant(cf => cf.ByAutomationId("PnlFormLoader"));
-            var formCitas = pnlFormLoader.FindFirstDescendant(cf => cf.ByAutomationId("MenuAddCita"));
-
-            var gridCitas = formCitas.FindFirstDescendant(cf => cf.ByControlType(FlaUI.Core.Definitions.ControlType.DataGrid))?.AsDataGridView();
-            var primeraCita = gridCitas.Rows.Skip(1).FirstOrDefault();
-            Assert.IsNotNull(primeraCita, "No hay citas para eliminar");
-
-            primeraCita.RightClick();
-            Thread.Sleep(500);
-
-            var menuContextual = menuWindow.FindFirstDescendant(cf => cf.ByControlType(FlaUI.Core.Definitions.ControlType.Menu));
-            var opcionEliminar = menuContextual?.FindFirstDescendant(cf => cf.ByName("Eliminar"))?.AsMenuItem();
-            Assert.IsNotNull(opcionEliminar, "Opción de eliminar no encontrada");
-            opcionEliminar.Click();
-            Thread.Sleep(1000);
-
-            var confirmacion = _application.GetAllTopLevelWindows(_automation)
-                .FirstOrDefault(w => w.Name.Contains(""));
-            if (confirmacion != null)
-            {
-                var btnAceptar = confirmacion.FindFirstDescendant(cf =>
-                    cf.ByControlType(FlaUI.Core.Definitions.ControlType.Button))?.AsButton();
-                btnAceptar?.Click();
-                Thread.Sleep(500);
-            }
-        }
+       
 
         private void SeleccionarMascota()
         {

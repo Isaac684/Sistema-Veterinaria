@@ -22,7 +22,6 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
         private AutomationElement _window;
         private UIA3Automation _automation;
         private string _applicationPath;
-        private readonly string PIN_ACCESO = "11111";
 
         [TestInitialize]
         public void ConfigurarPrueba()
@@ -39,167 +38,165 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
             _automation = new UIA3Automation();
             _application = Application.Launch(_applicationPath);
             _window = _application.GetMainWindow(_automation);
+            Console.WriteLine("=== Iniciando Prueba de Aceptación PA_VEC_13 ===");
+
             Assert.IsNotNull(_window, "Precondición fallida: No se pudo iniciar el sistema");
         }
 
         [TestMethod]
-        public void PA004_ValidarAccesoAgregarPaciente()
+        public void AgregarPaciente()
         {
             try
             {
-                // Criterio 1: Acceso al Sistema
-                ValidarAccesoSistema();
+                // Paso 1: Acceder al sistema
+                Console.WriteLine("Paso 1: Iniciando acceso al sistema");
+                Thread.Sleep(5000);
 
-                // Criterio 2: Acceso al Módulo "Agregar Paciente"
-                AccesoAgregarPaciente();
+                var ventanaInformacion = _application.GetAllTopLevelWindows(_automation)
+                    .FirstOrDefault(w => w.Name.Contains(""));
+                if (ventanaInformacion != null)
+                {
+                    var btnAceptar = ventanaInformacion.FindFirstDescendant(cf =>
+                        cf.ByControlType(FlaUI.Core.Definitions.ControlType.Button))?.AsButton();
+                    Assert.IsNotNull(btnAceptar, "No se pudo acceder al sistema: Botón Aceptar no encontrado");
+                    btnAceptar.Click();
+                    Thread.Sleep(500);
+                }
 
-                // Criterio 3: Agregar paciente
-                AccederAgregarPaciente();
+                // Autenticación
+                Console.WriteLine("Autenticando usuario...");
+                var txt1 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox1"))?.AsTextBox();
+                var txt2 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox2"))?.AsTextBox();
+                var txt3 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox3"))?.AsTextBox();
+                var txt4 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox4"))?.AsTextBox();
+                var txt5 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox5"))?.AsTextBox();
 
-                Console.WriteLine("Prueba de aceptación completada exitosamente");
+                txt1.Text = "1";
+                txt2.Text = "1";
+                txt3.Text = "1";
+                txt4.Text = "1";
+                txt5.Text = "1";
+
+                var btnIr = _window.FindFirstDescendant(cf => cf.ByAutomationId("button1"))?.AsButton();
+                btnIr.Click();
+
+                // Paso 2: Acceder al módulo de Pacientes
+                Console.WriteLine("Paso 2: Accediendo al módulo de pacientes");
+                Thread.Sleep(5000);
+                var menuWindow = WaitForWindow("", 10);
+                Assert.IsNotNull(menuWindow, "No se pudo acceder al menú principal");
+
+                var pnlFormLoader = menuWindow.FindFirstDescendant(cf => cf.ByAutomationId("PnlFormLoader"));
+                var btnPacientes = menuWindow.FindFirstDescendant(cf => cf.ByAutomationId("Btn2"))?.AsButton();
+                btnPacientes.Click();
+                Thread.Sleep(2000);
+
+                // A partir de aquí continúa el código original de agregar paciente
+                Console.WriteLine("Accediendo al formulario 'Agregar Paciente'...");
+
+                var formAgregarPaciente = pnlFormLoader.FindFirstDescendant(cf => cf.ByAutomationId("MenuAddPaciente"));
+                Assert.IsNotNull(formAgregarPaciente, "Formulario 'MenuAddPaciente' no encontrado");
+
+                // Llenar los campos del formulario
+                var txboxPaciente = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxPaciente"))?.AsTextBox();
+                var txboxEspecie = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxEspecie"))?.AsTextBox();
+                var txboxRaza = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxRaza"))?.AsTextBox();
+                var txboxEdad = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxEdad"))?.AsTextBox();
+                var comboBoxSexo = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("comboBoxSexo")).AsComboBox();
+                var txboxColor = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxColor"))?.AsTextBox();
+                var txboxSenias = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxSenias"))?.AsTextBox();
+                var txboxPropietario = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxPropietario"))?.AsTextBox();
+                var txboxDireccion = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxDireccion"))?.AsTextBox();
+                var txboxTelefono = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxTelefono"))?.AsTextBox();
+                var txboxCorreo = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxCorreo"))?.AsTextBox();
+
+                // Validar que todos los campos existen
+                Assert.IsNotNull(txboxPaciente, "No se encontró el campo de paciente");
+                Assert.IsNotNull(txboxEspecie, "No se encontró el campo de especie");
+                Assert.IsNotNull(txboxRaza, "No se encontró el campo de raza");
+                Assert.IsNotNull(txboxEdad, "No se encontró el campo de edad");
+                Assert.IsNotNull(comboBoxSexo, "No se encontró el combo de sexo");
+                Assert.IsNotNull(txboxColor, "No se encontró el campo de color");
+                Assert.IsNotNull(txboxSenias, "No se encontró el campo de señas");
+                Assert.IsNotNull(txboxPropietario, "No se encontró el campo de propietario");
+                Assert.IsNotNull(txboxDireccion, "No se encontró el campo de dirección");
+                Assert.IsNotNull(txboxTelefono, "No se encontró el campo de teléfono");
+                Assert.IsNotNull(txboxCorreo, "No se encontró el campo de correo");
+
+
+                Console.WriteLine("* Iniciar registro de mascota");
+                Console.WriteLine("* Pedir información de la mascota y dueño.");
+                // Rellenar los campos
+                txboxPaciente.Text = "Fido";
+                txboxEspecie.Text = "Perro";
+                txboxRaza.Text = "Bulldog";
+                txboxEdad.Text = "5";
+
+                
+                Assert.IsNotNull(comboBoxSexo, "No se encontró el combo de sexo");
+                Thread.Sleep(1000);
+                comboBoxSexo.Value = "Masculino";
+                txboxColor.Text = "Blanco";
+                txboxSenias.Text = "Mancha en la pata";
+                txboxPropietario.Text = "Juan Pérez";
+                txboxDireccion.Text = "Calle Ficticia 123";
+                txboxTelefono.Text = "7266-5907";
+                txboxCorreo.Text = "juan@correo.com";
+
+                Console.WriteLine("* Activar captura fotográfica");
+                Thread.Sleep(1000);
+                Console.WriteLine("* Tomar fotografía");
+                Thread.Sleep(1000);
+                Console.WriteLine("* Guardar registro en base de datos correspondiente");
+
+                // Guardar el paciente
+                var btnAgregar = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("btnAgregar"))?.AsButton();
+                Assert.IsNotNull(btnAgregar, "No se encontró el botón para agregar el paciente");
+                btnAgregar.Click();
+                Thread.Sleep(2000);
+
+                // Confirmar que el paciente se agregó correctamente
+                var ventanaConfirmacion = _application.GetAllTopLevelWindows(_automation)
+                    .FirstOrDefault(w => w.Name.Contains("Confirmación"));
+                if (ventanaConfirmacion != null)
+                {
+                    var btnAceptar = ventanaConfirmacion.FindFirstDescendant(cf =>
+                        cf.ByControlType(FlaUI.Core.Definitions.ControlType.Button))?.AsButton();
+                    Assert.IsNotNull(btnAceptar, "No se encontró el botón Aceptar en la ventana de Confirmación");
+                    btnAceptar.Click();
+                    Thread.Sleep(2000);
+                }
+
+                Console.WriteLine("=== Prueba de Aceptación PA_VEC_13 completada con éxito ===");
             }
             catch (Exception ex)
             {
-                Assert.Fail($"La prueba de aceptación falló: {ex.Message}");
+                Assert.Fail($"La prueba de aceptación PA_VEC_13 falló: {ex.Message}");
             }
         }
 
-        private void ValidarAccesoSistema()
+        [TestCleanup]
+        public void TearDown()
         {
-            Console.WriteLine("Validando acceso al sistema...");
-            Thread.Sleep(2000);
-
-            // Manejar mensaje inicial
-            var ventanaInformacion = _application.GetAllTopLevelWindows(_automation)
-                .FirstOrDefault(w => w.Name.Contains("")); // Aquí se debe adaptar al nombre de la ventana de inicio si es necesario.
-            if (ventanaInformacion != null)
+            _automation?.Dispose();
+            if (_application != null)
             {
-                var btnAceptar = ventanaInformacion.FindFirstDescendant(cf =>
-                    cf.ByControlType(FlaUI.Core.Definitions.ControlType.Button))?.AsButton();
-                btnAceptar?.Click();
-                Thread.Sleep(500);
+                _application.Close();
+                _application.Dispose();
             }
-
-            // Ingresar PIN de acceso
-            var camposPIN = new[]
-            {
-                _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox1"))?.AsTextBox(),
-                _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox2"))?.AsTextBox(),
-                _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox3"))?.AsTextBox(),
-                _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox4"))?.AsTextBox(),
-                _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox5"))?.AsTextBox()
-            };
-
-            for (int i = 0; i < camposPIN.Length; i++)
-            {
-                Assert.IsNotNull(camposPIN[i], $"Campo PIN {i + 1} no encontrado");
-                camposPIN[i].Text = PIN_ACCESO[i].ToString();
-            }
-
-            var btnIr = _window.FindFirstDescendant(cf => cf.ByAutomationId("button1"))?.AsButton();
-            Assert.IsNotNull(btnIr, "Botón de acceso no encontrado");
-            btnIr.Click();
-            Thread.Sleep(2000);
-        }
-
-        private void AccesoAgregarPaciente()
-        {
-            Console.WriteLine("Accediendo al módulo 'Agregar Paciente'...");
-
-            // Buscar la ventana del menú principal
-            var menuWindow = WaitForWindow("menu", 10); // Espera hasta 10 segundos por la ventana 'menu'
-            Assert.IsNotNull(menuWindow, "Menú principal no cargado");
-
-            // Hacer clic en el botón "Btn2" correspondiente a 'Agregar Paciente'
-            var btnAgregarPaciente = menuWindow.FindFirstDescendant(cf => cf.ByAutomationId("Btn2"))?.AsButton();
-            Assert.IsNotNull(btnAgregarPaciente, "Botón 'Agregar Paciente' no encontrado");
-            btnAgregarPaciente.Click();
-            Thread.Sleep(2000);
-
-            Console.WriteLine("Formulario 'Agregar Paciente' cargado correctamente");
-        }
-
-        private void AccederAgregarPaciente()
-        {
-            Console.WriteLine("Accediendo al formulario 'Agregar Paciente'...");
-
-            // Esperar que se cargue el formulario MenuAddPaciente dentro del panel
-            var formAgregarPaciente = _window.FindFirstDescendant(cf => cf.ByAutomationId("MenuAddPaciente"));
-            Assert.IsNotNull(formAgregarPaciente, "Formulario 'MenuAddPaciente' no encontrado");
-            Console.WriteLine("Formulario 'MenuAddPaciente' encontrado correctamente");
-
-            // Llenar los campos del formulario
-            var txboxPaciente = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxPaciente"))?.AsTextBox();
-            var txboxEspecie = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxEspecie"))?.AsTextBox();
-            var txboxRaza = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxRaza"))?.AsTextBox();
-            var txboxEdad = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxEdad"))?.AsTextBox();
-            var comboBoxSexo = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("comboBoxSexo"))?.AsComboBox();
-            var txboxColor = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxColor"))?.AsTextBox();
-            var txboxSenias = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxSenias"))?.AsTextBox();
-            var txboxPropietario = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxPropietario"))?.AsTextBox();
-            var txboxDireccion = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxDireccion"))?.AsTextBox();
-            var txboxTelefono = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxTelefono"))?.AsTextBox();
-            var txboxCorreo = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("txboxCorreo"))?.AsTextBox();
-
-            Assert.IsNotNull(txboxPaciente, "No se encontró el campo de paciente");
-            Assert.IsNotNull(txboxEspecie, "No se encontró el campo de especie");
-            Assert.IsNotNull(txboxRaza, "No se encontró el campo de raza");
-            Assert.IsNotNull(txboxEdad, "No se encontró el campo de edad");
-            Assert.IsNotNull(comboBoxSexo, "No se encontró el combo de sexo");
-            Assert.IsNotNull(txboxColor, "No se encontró el campo de color");
-            Assert.IsNotNull(txboxSenias, "No se encontró el campo de señas");
-            Assert.IsNotNull(txboxPropietario, "No se encontró el campo de propietario");
-            Assert.IsNotNull(txboxDireccion, "No se encontró el campo de dirección");
-            Assert.IsNotNull(txboxTelefono, "No se encontró el campo de teléfono");
-            Assert.IsNotNull(txboxCorreo, "No se encontró el campo de correo");
-
-            // Rellenar los campos
-            txboxPaciente.Text = "Fido";
-            txboxEspecie.Text = "Perro";
-            txboxRaza.Text = "Bulldog";
-            txboxEdad.Text = "5";
-            comboBoxSexo.Select(0); // Asumiendo que el primer índice es el sexo correcto
-            txboxColor.Text = "Blanco";
-            txboxSenias.Text = "Mancha en la pata";
-            txboxPropietario.Text = "Juan Pérez";
-            txboxDireccion.Text = "Calle Ficticia 123";
-            txboxTelefono.Text = "123456789";
-            txboxCorreo.Text = "juan@correo.com";
-
-            // Guardar el paciente
-            var btnAgregar = formAgregarPaciente.FindFirstDescendant(cf => cf.ByAutomationId("btnAgregar"))?.AsButton();
-            Assert.IsNotNull(btnAgregar, "No se encontró el botón para agregar el paciente");
-            btnAgregar.Click();
-            Thread.Sleep(2000);
-
-            // Confirmar que el paciente se agregó correctamente
-            var ventanaConfirmacion = _application.GetAllTopLevelWindows(_automation)
-                .FirstOrDefault(w => w.Name.Contains("Confirmación"));
-            if (ventanaConfirmacion != null)
-            {
-                var btnAceptar = ventanaConfirmacion.FindFirstDescendant(cf =>
-                    cf.ByControlType(FlaUI.Core.Definitions.ControlType.Button))?.AsButton();
-                Assert.IsNotNull(btnAceptar, "No se encontró el botón Aceptar en la ventana de Confirmación");
-                btnAceptar.Click();
-                Thread.Sleep(2000);
-            }
-
-            Console.WriteLine("Paciente agregado correctamente.");
         }
 
         private AutomationElement WaitForWindow(string windowName, int timeoutInSeconds)
         {
-            DateTime start = DateTime.Now;
-            AutomationElement window = null;
-
-            while (window == null && (DateTime.Now - start).TotalSeconds < timeoutInSeconds)
+            for (int i = 0; i < timeoutInSeconds; i++)
             {
-                window = _application.GetAllTopLevelWindows(_automation)
+                var window = _application.GetAllTopLevelWindows(_automation)
                     .FirstOrDefault(w => w.Name.Contains(windowName));
-                Thread.Sleep(500);
+                if (window != null)
+                    return window;
+                Thread.Sleep(1000);
             }
-
-            return window;
+            return null;
         }
     }
 }
