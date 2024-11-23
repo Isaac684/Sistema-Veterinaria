@@ -18,6 +18,20 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
         private AutomationElement _window;
         private UIA3Automation _automation;
         private string _applicationPath;
+        private TestContext testContextInstance;
+
+        public TestContext TestContext
+        {
+            get { return testContextInstance; }
+            set { testContextInstance = value; }
+        }
+
+        private void LogAction(string action)
+        {
+            string message = $"[{DateTime.Now:HH:mm:ss}] {action}";
+            Console.WriteLine(message);
+            TestContext.WriteLine(message);
+        }
 
         [TestInitialize]
         public void Setup()
@@ -35,6 +49,7 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
             _window = _application.GetMainWindow(_automation);
 
             Assert.IsNotNull(_window, "No se pudo obtener la ventana principal");
+            LogAction("Aplicación iniciada correctamente");
         }
 
         [TestMethod]
@@ -42,21 +57,34 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
         {
             try
             {
+                LogAction("INICIANDO PRUEBA DE GESTIÓN DE VACUNAS");
+
                 // 1. Iniciar sesión
+                LogAction("1. Iniciando proceso de inicio de sesión");
                 ManejarVentanaInicial();
                 IngresarCredenciales();
+                LogAction("✓ Inicio de sesión completado exitosamente");
 
                 // 2. Seleccionar mascota
+                LogAction("2. Seleccionando mascota del listado");
                 var mascotaSeleccionada = SeleccionarMascota();
+                LogAction("✓ Mascota seleccionada correctamente");
 
                 // 3. Registrar nueva vacuna
+                LogAction("3. Iniciando registro de nueva vacuna");
                 RegistrarNuevaVacuna(mascotaSeleccionada);
+                LogAction("✓ Nueva vacuna registrada exitosamente");
 
                 // 4. Verificar registro de vacuna
+                LogAction("4. Verificando registro de vacuna");
                 VerificarRegistroVacuna();
+                LogAction("✓ Verificación de registro completada");
+
+                LogAction("PRUEBA COMPLETADA EXITOSAMENTE");
             }
             catch (Exception ex)
             {
+                LogAction($"❌ ERROR: {ex.Message}");
                 Assert.Fail($"Prueba de aceptación fallida: {ex.Message}");
             }
         }
@@ -74,6 +102,7 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
 
                 Assert.IsNotNull(btnAceptar, "No se encontró botón Aceptar");
                 btnAceptar.Click();
+                LogAction("Ventana inicial manejada correctamente");
             }
         }
 
@@ -93,6 +122,7 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
             txt3.Text = "1";
             txt4.Text = "1";
             txt5.Text = "1";
+            LogAction("Credenciales ingresadas: 11111");
 
             var btnIr = _window.FindFirstDescendant(cf => cf.ByAutomationId("button1"))?.AsButton();
             Assert.IsNotNull(btnIr, "No se encontró botón IR");
@@ -116,6 +146,7 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
             Assert.IsNotNull(secondRow, "No hay filas en el DataGridView");
 
             secondRow.Click();
+            LogAction("Mascota seleccionada de la lista");
             Thread.Sleep(5000);
 
             return pnlFormLoader;
@@ -129,6 +160,7 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
             var btnVacuna = expedienteForm.FindFirstDescendant(cf => cf.ByAutomationId("btnVacunas"))?.AsButton();
             Assert.IsNotNull(btnVacuna, "No se encontró botón de vacunas");
             btnVacuna.Click();
+            LogAction("Accediendo al módulo de vacunas");
 
             Thread.Sleep(5000);
 
@@ -138,6 +170,7 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
             var btnAgregar = expVacunasWindow.FindFirstDescendant(cf => cf.ByAutomationId("btnAgregar"))?.AsButton();
             Assert.IsNotNull(btnAgregar, "No se encontró botón Agregar");
             btnAgregar.Click();
+            LogAction("Iniciando registro de nueva vacuna");
 
             var vacunaForm = WaitForWindow("", 10);
             Assert.IsNotNull(vacunaForm, "No se cargó VacunaForm");
@@ -156,8 +189,10 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
             txtDoctor.Text = "Dr. Prueba";
             dateAplicacion.SelectedDate = DateTime.Now;
             dateProxima.SelectedDate = DateTime.Now.AddMonths(1);
+            LogAction("Datos de vacuna ingresados correctamente");
 
             btnAgregarVacuna.Click();
+            LogAction("Guardando registro de vacuna");
 
             // Manejar ventana de confirmación
             var ventanaInformacion = _application.GetAllTopLevelWindows(_automation)
@@ -170,6 +205,7 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
 
                 Assert.IsNotNull(btnAceptar, "No se encontró botón Aceptar");
                 btnAceptar.Click();
+                LogAction("Confirmación de registro aceptada");
             }
         }
 
@@ -180,11 +216,13 @@ namespace plan_de_prueba.Test.Pruebas_de_aceptacion
                 .All(w => !w.Name.Contains(""));
 
             Assert.IsTrue(!vacunaFormCerrado, "El formulario de vacuna no se cerró correctamente.");
+            LogAction("Verificación completada: Formulario cerrado correctamente");
         }
 
         [TestCleanup]
         public void TearDown()
         {
+            LogAction("Finalizando prueba y cerrando aplicación");
             _automation?.Dispose();
             if (_application != null)
             {

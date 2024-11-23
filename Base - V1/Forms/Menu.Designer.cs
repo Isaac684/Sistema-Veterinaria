@@ -41,7 +41,6 @@
             Btn1 = new Button();
             btnInv = new Button();
             button1 = new Button();
-            Btn2 = new Button();
             btnCita = new Button();
             sideBarContainer = new FlowLayoutPanel();
             panel2 = new Panel();
@@ -55,6 +54,7 @@
             panel6 = new Panel();
             panel9 = new Panel();
             sidebarTimer = new System.Windows.Forms.Timer(components);
+            Btn2 = new Button();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -237,27 +237,6 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_2;
             // 
-            // Btn2
-            // 
-            Btn2.BackColor = Color.FromArgb(1, 48, 69);
-            Btn2.Cursor = Cursors.Hand;
-            Btn2.Dock = DockStyle.Fill;
-            Btn2.FlatAppearance.BorderSize = 0;
-            Btn2.FlatStyle = FlatStyle.Flat;
-            Btn2.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Btn2.ForeColor = Color.White;
-            Btn2.Image = (Image)resources.GetObject("Btn2.Image");
-            Btn2.ImageAlign = ContentAlignment.MiddleLeft;
-            Btn2.Location = new Point(0, 0);
-            Btn2.Margin = new Padding(3, 2, 3, 2);
-            Btn2.Name = "Btn2";
-            Btn2.Padding = new Padding(5, 0, 0, 0);
-            Btn2.Size = new Size(214, 49);
-            Btn2.TabIndex = 2;
-            Btn2.Text = "Agregar paciente";
-            Btn2.UseVisualStyleBackColor = false;
-            Btn2.Click += Btn2_Click;
-            // 
             // btnCita
             // 
             btnCita.BackColor = Color.FromArgb(1, 48, 69);
@@ -395,6 +374,27 @@
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick;
             // 
+            // Btn2
+            // 
+            Btn2.BackColor = Color.FromArgb(1, 48, 69);
+            Btn2.Cursor = Cursors.Hand;
+            Btn2.Dock = DockStyle.Fill;
+            Btn2.FlatAppearance.BorderSize = 0;
+            Btn2.FlatStyle = FlatStyle.Flat;
+            Btn2.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Btn2.ForeColor = Color.White;
+            Btn2.Image = (Image)resources.GetObject("Btn2.Image");
+            Btn2.ImageAlign = ContentAlignment.MiddleLeft;
+            Btn2.Location = new Point(0, 0);
+            Btn2.Margin = new Padding(3, 2, 3, 2);
+            Btn2.Name = "Btn2";
+            Btn2.Padding = new Padding(5, 0, 0, 0);
+            Btn2.Size = new Size(214, 49);
+            Btn2.TabIndex = 2;
+            Btn2.Text = "Agregar paciente";
+            Btn2.UseVisualStyleBackColor = false;
+            Btn2.Click += Btn2_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -438,7 +438,6 @@
         private PictureBox pictureBox2;
         private Panel PanelNav;
         private Button Btn6;
-        public Button Btn2;
         private Button Btn1;
         private Label IblTittle;
 		public Button btnCita;
@@ -456,5 +455,6 @@
         private Label label1;
         private System.Windows.Forms.Timer sidebarTimer;
         private PictureBox pictureBox1;
+        public Button Btn2;
     }
 }
