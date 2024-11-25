@@ -24,8 +24,4 @@
 	  <ProjectReference Include="..\Base - V1\Base - V1.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Test\Pruebas_Unitarias\" />
-  </ItemGroup>
-
 </Project>
