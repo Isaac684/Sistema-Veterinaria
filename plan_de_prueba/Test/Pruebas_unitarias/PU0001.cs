@@ -41,7 +41,7 @@ namespace plan_de_prueba.Test.Pruebas_Unitarias
         {
             // try
             //{
-            Console.WriteLine("1- Esperando a que aparezca el mensaje de informacion");
+            // Console.WriteLine("Esperando a que aparezca el mensaje de informacion");
             Thread.Sleep(5000);
 
             // 1. Manejar mensaje de información
@@ -49,7 +49,7 @@ namespace plan_de_prueba.Test.Pruebas_Unitarias
                 .FirstOrDefault(w => w.Name.Contains(""));
             if (ventanaInformacion != null)
             {
-                Console.WriteLine("2- Ventana de informacion detectada");
+                //Console.WriteLine("Ventana de informacion detectada");
                 var btnAceptar = ventanaInformacion.FindFirstDescendant(cf =>
                     cf.ByControlType(FlaUI.Core.Definitions.ControlType.Button))?.AsButton();
                 Assert.IsNotNull(btnAceptar, "No se encontró el botón Aceptar en la ventana de Información");
@@ -60,7 +60,7 @@ namespace plan_de_prueba.Test.Pruebas_Unitarias
             }
 
             // 2. Ingresar PIN
-            Console.WriteLine("3- Ingresando pin de acceso...");
+            Console.WriteLine("1- Ingresando pin de acceso al sistema");
             var txt1 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox1"))?.AsTextBox();
             var txt2 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox2"))?.AsTextBox();
             var txt3 = _window.FindFirstDescendant(cf => cf.ByAutomationId("textBox3"))?.AsTextBox();
@@ -77,11 +77,11 @@ namespace plan_de_prueba.Test.Pruebas_Unitarias
 
             var btnIr = _window.FindFirstDescendant(cf => cf.ByAutomationId("button1"))?.AsButton();
             Assert.IsNotNull(btnIr, "No se encontró el botón IR");
-            Console.WriteLine("4- Presionando el boton de ir");
+            Console.WriteLine("2- Presionando el boton de ir");
             btnIr.Click();
 
             // 3. Verificar que se cargó el formulario del menú
-                Console.WriteLine("Esperando ventana principal...");
+            Console.WriteLine("Esperando ventana principal...");
             Thread.Sleep(5000);
             var menuWindow = WaitForWindow("", 10);
 
@@ -89,7 +89,8 @@ namespace plan_de_prueba.Test.Pruebas_Unitarias
 
             var pnlFormLoader = menuWindow.FindFirstDescendant(cf => cf.ByAutomationId("PnlFormLoader"));
             Assert.IsNotNull(pnlFormLoader, "No se encontró el panel PnlFormLoader");
-            Console.WriteLine("5- Vetana principal mostrada al usuario el text finalio con exito!");
+            Console.WriteLine("3- Ventana principal detectada!");
+            Console.WriteLine("5- Ventana principal mostrada al usuario, el text finalio con exito!");
 
         }
 
